@@ -10,7 +10,6 @@ const { createFilePath, createFileNode } = require(`gatsby-source-filesystem`);
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`)
   return new Promise((resolve, reject) => {
     resolve(graphql(`
     {
@@ -20,9 +19,9 @@ exports.createPages = ({ actions, graphql }) => {
       ) {
         edges {
           node {
-              fields{
-                  slug
-              }
+            fields{
+              slug
+            }
             frontmatter {
               title
             }
@@ -42,6 +41,8 @@ exports.createPages = ({ actions, graphql }) => {
             component: blogTemplate,
             context: {
               slug: node.fields.slug,
+              prev: index === 0 ? null : posts[index - 1],
+              next: index === result.length - 1 ? null : posts[index + 1],
             }, // additional data can be passed via context
           })
         })

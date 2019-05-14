@@ -1,8 +1,9 @@
 ---
-title: "My first Blog post"
+title: "How I became a front-end developer without a CS degree"
 description: This post is related to the gatsbyjs
 date: '2018-09-26'
 image: "time.jpg"
+tags: ['javascript','react','gatsby']
 ---
 Don't build a website with last decade's tech. The future of the web is mobile,
  JavaScript and APIs—the
