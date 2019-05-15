@@ -1,7 +1,7 @@
 ---
 title: "How I became a front-end developer without a CS degree"
 description: This post is related to the gatsbyjs
-date: '2018-09-26'
+date: '2018-09-21'
 image: "time.jpg"
 tags: ['javascript','react','gatsby']
 ---
