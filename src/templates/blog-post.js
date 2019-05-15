@@ -1,18 +1,18 @@
-import React from 'react';
-import Layout from '../components/layout';
-import Img from 'gatsby-image';
-import { graphql } from 'gatsby'
-import Metatags from '../components/seo';
+import React from "react"
+import Layout from "../components/layout"
+import Img from "gatsby-image"
+import { graphql } from "gatsby"
+import Metatags from "../components/SEO"
+import Share from "../components/Share"
+import PrevNext from "../components/PrevNext"
 
-
-function BlogPost(props) {
-
-  const post = props.data.markdownRemark;
-  const url = props.data.site.siteMetadata.siteUrl
-  const { title, description } = post.frontmatter;
+function BlogPost({ pageContext, data, location }) {
+  const post = data.markdownRemark
+  const url = data.site.siteMetadata.siteUrl
+  const { title, description, tags } = post.frontmatter
   const thumbnail =
-    post.frontmatter.image &&
-    post.frontmatter.image.childImageSharp.resize.src
+    post.frontmatter.image && post.frontmatter.image.childImageSharp.resize.src
+  const { prev, next } = pageContext
 
   return (
     <Layout>
@@ -21,29 +21,36 @@ function BlogPost(props) {
         description={description}
         thumbnail={url + thumbnail}
         url={url}
-        pathname={props.location.pathname}
+        pathname={location.pathname}
       />
       <div>
-
         <h1>{title}</h1>
         {<Img fluid={post.frontmatter.image.childImageSharp.fluid} />}
         <h1>content</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div>
+          <span>Tagged in </span>
+          {tags.map((tag, i) => (
+            <a href={`/${tag}`} key={i} style={{ marginLeft: "10px" }} >{tag}</a>
+          ))}
+        </div>
+        <Share title={title} url={url} pathname={location.pathname} />
+
+        <PrevNext prev={prev && prev.node} next={next && next.node} />
       </div>
     </Layout>
   )
 }
 
-
 export default BlogPost
 
-
 export const query = graphql`
- query PostQuery($slug: String!) {
-     markdownRemark(fields: { slug: { eq: $slug } }) {
-       html
-       frontmatter {
+  query PostQuery($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
         title
+        tags
         description
         image {
           childImageSharp {
@@ -54,13 +61,13 @@ export const query = graphql`
               ...GatsbyImageSharpFluid
             }
           }
-       }
-       }
-     }
-    site {
-        siteMetadata {
-              siteUrl
-           }
+        }
+      }
     }
-}
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+  }
 `

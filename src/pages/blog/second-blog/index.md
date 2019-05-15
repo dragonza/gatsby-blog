@@ -1,8 +1,9 @@
 ---
 title: "My second Blog post"
 description: This post is related to the gatsbyjs
-date: '2018-09-26'
-image: '../../images/gatsby-astronaut.png'
+date: '2018-09-25'
+image: "time.jpg"
+tags: ['javascript','react','gatsby']
 ---
 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
