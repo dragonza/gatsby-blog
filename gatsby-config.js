@@ -1,9 +1,28 @@
 module.exports = {
   siteMetadata: {
-    title: 'Dragonza\'s blog',
-    description: 'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
+    title: 'Dragonza.io',
+    description:
+      'Just an ordinary developer who loves coding, guitar playing, video games and dragons',
     author: 'Dragonza',
     siteUrl: 'https:/dragonza.io',
+    menuLinks: [
+      {
+        name: 'Home',
+        link: '/',
+      },
+      {
+        name: 'Blog',
+        link: '/blog'
+      },
+      {
+        name: 'Contact',
+        link: '/contact'
+      },
+      {
+        name: 'About',
+        link: '/about'
+      }
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -17,16 +36,14 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [
-          `gatsby-remark-prismjs`,
-        ]
-      }
+        plugins: [`gatsby-remark-prismjs`],
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: "pages",
+        name: 'pages',
       },
     },
     `gatsby-transformer-sharp`,
@@ -43,12 +60,26 @@ module.exports = {
         theme_color: `#2a9928`,
         display: `minimal-ui`,
         // display: `standalone`,
-        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo-dragon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-offline`,
-
-
-
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        // your google analytics tracking id
+        trackingId: `UA-47069149-2`,
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // enable ip anonymization
+        anonymize: true,
+      },
+    },
   ],
 }
