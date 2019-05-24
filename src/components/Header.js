@@ -7,33 +7,34 @@ import headerStyle from './Header.module.css'
 const Header = ({ siteTitle, menuLinks }) => (
   <header className={headerStyle.header}>
     <div className={headerStyle.contentContainer}>
-      <Link to="/" className={headerStyle.siteNameContainer}>
-        <div className={headerStyle.logoContainer}>
-          <Image imgName="logo-dragon.png" />
-        </div>
-        <span className={headerStyle.siteNameTitle}>
+      <div className={headerStyle.logoAndNavContainer}>
+        <Link to="/" className={headerStyle.siteNameContainer}>
+          <div className={headerStyle.logoContainer}>
+            <Image imgName="logo-dragon.png" />
+          </div>
+          <span className={headerStyle.siteNameTitle}>
           <b>{siteTitle}</b>
         </span>
-      </Link>
-      <nav>
-        <ul className={headerStyle.navContainer}>
-          {menuLinks.map(link => {
-            const partiallyActive = link.link !== '/'
-            return (
-              <li key={link.link} className={headerStyle.navItem}>
-                <Link
-                  to={link.link}
-                  style={{ color: '#fff'}}
-                  activeStyle={{ fontWeight: 'bold', color: '#f7f746' }}
-                  partiallyActive={partiallyActive}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
-      </nav>
+        </Link>
+        <nav>
+          <ul className={headerStyle.navContainer}>
+            {menuLinks.map(link => {
+              return (
+                <li key={link.link} className={headerStyle.navItem}>
+                  <Link
+                    to={link.link}
+                    // style={{ color: '#fff' }}
+                    activeStyle={{ fontWeight: 'bold', color: 'var(--green)' }}
+                    partiallyActive
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 )

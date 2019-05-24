@@ -1,5 +1,5 @@
-import Typography from "typography"
-import oceanBeachTheme from "typography-theme-ocean-beach"
+import Typography from 'typography'
+import oceanBeachTheme from 'typography-theme-ocean-beach'
 
 oceanBeachTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   a: {
@@ -8,11 +8,23 @@ oceanBeachTheme.overrideThemeStyles = ({ rhythm }, options) => ({
     backgroundImage: 'none',
     textShadow: 'none',
     color: 'var(--textLink)',
-
-  }
+  },
+  // gatsby-remark-autolink-headers - don't underline when hidden
+  'a.anchor': {
+    boxShadow: 'none',
+  },
+  // gatsby-remark-autolink-headers - use theme colours for the link icon
+  'a.anchor svg[aria-hidden="true"]': {
+    stroke: 'var(--textLink)',
+  },
+  hr: {
+    background: 'var(--hr)',
+  },
+  'h1, h2, h3': {
+    color: 'var(--textTitle)',
+  },
 })
 const typography = new Typography(oceanBeachTheme)
-
 
 // Export helper functions
 export const { scale, rhythm, options } = typography

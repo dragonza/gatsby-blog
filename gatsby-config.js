@@ -7,20 +7,16 @@ module.exports = {
     siteUrl: 'https:/dragonza.io',
     menuLinks: [
       {
-        name: 'Home',
-        link: '/',
-      },
-      {
         name: 'Blog',
-        link: '/blog'
-      },
-      {
-        name: 'Contact',
-        link: '/contact'
+        link: '/',
       },
       {
         name: 'About',
         link: '/about'
+      },
+      {
+        name: 'Contact',
+        link: '/contact'
       }
     ],
   },
@@ -81,5 +77,6 @@ module.exports = {
         anonymize: true,
       },
     },
+    'gatsby-plugin-dark-mode'
   ],
 }

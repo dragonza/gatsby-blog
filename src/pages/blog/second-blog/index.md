@@ -26,6 +26,14 @@ plugins: [
     }
   }
 ]
+
+const t = 1 + 2;
+```
+
+```css
+h1 {
+  top: 10px
+}
 ```
     
     
