@@ -1,10 +1,11 @@
 import React from "react"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
 import Metatags from "../components/SEO"
 import Share from "../components/Share"
 import PrevNext from "../components/PrevNext"
+import ToggleTheme from '../components/ToggleTheme'
 
 function BlogPost({ pageContext, data, location }) {
   const post = data.markdownRemark
@@ -16,6 +17,7 @@ function BlogPost({ pageContext, data, location }) {
 
   return (
     <Layout>
+      <ToggleTheme />
       <Metatags
         title={title}
         description={description}

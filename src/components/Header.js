@@ -1,32 +1,40 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
+import Image from '../components/Image'
+import headerStyle from './Header.module.css'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rgb(15, 157, 88)`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+const Header = ({ siteTitle, menuLinks }) => (
+  <header className={headerStyle.header}>
+    <div className={headerStyle.contentContainer}>
+      <div className={headerStyle.logoAndNavContainer}>
+        <Link to="/" className={headerStyle.siteNameContainer}>
+          <div className={headerStyle.logoContainer}>
+            <Image imgName="logo-dragon.png" />
+          </div>
+          <span className={headerStyle.siteNameTitle}>
+          <b>{siteTitle}</b>
+        </span>
         </Link>
-      </h1>
+        <nav>
+          <ul className={headerStyle.navContainer}>
+            {menuLinks.map(link => {
+              return (
+                <li key={link.link} className={headerStyle.navItem}>
+                  <Link
+                    to={link.link}
+                    // style={{ color: '#fff' }}
+                    activeStyle={{ fontWeight: 'bold', color: 'var(--green)' }}
+                    partiallyActive
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 )

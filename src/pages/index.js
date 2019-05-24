@@ -1,16 +1,20 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
 
-import Layout from "../components/layout"
-import SEO from "../components/SEO"
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
+import { ThemeToggler } from 'gatsby-plugin-dark-mode'
+import { graphql, Link } from 'gatsby'
+import ToggleTheme from '../components/ToggleTheme'
 
 const IndexPage = props => {
   const postList = props.data.allMarkdownRemark
+
   return (
     <Layout>
+      <ToggleTheme />
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       {postList.edges.map(({ node }, i) => (
-        <Link to={node.fields.slug} className="link" key={i}>
+        <Link to={node.fields.slug} className="link" key={i} >
           <div className="post-list">
             <h1>{node.frontmatter.title}</h1>
             <span>{node.frontmatter.date}</span>
