@@ -25,7 +25,6 @@ const Header = ({ siteTitle, menuLinks }) => (
                     to={link.link}
                     // style={{ color: '#fff' }}
                     activeStyle={{ fontWeight: 'bold', color: 'var(--green)' }}
-                    partiallyActive
                   >
                     {link.name}
                   </Link>

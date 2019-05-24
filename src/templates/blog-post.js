@@ -17,7 +17,6 @@ function BlogPost({ pageContext, data, location }) {
 
   return (
     <Layout>
-      <ToggleTheme />
       <Metatags
         title={title}
         description={description}

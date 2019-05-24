@@ -45,3 +45,18 @@ body.dark {
     --textLink: yellow;
     --hr: hsla(0, 0%, 100%, 0.2);
 }
+
+.toggle-theme.react-toggle--checked .react-toggle-track {
+    background-color: #fff;
+}
+
+.toggle-theme.react-toggle--checked .react-toggle-thumb {
+    background-color: var(--green);
+}
+.toggle-theme.react-toggle--focus.react-toggle--checked .react-toggle-thumb {
+    box-shadow: 0 0 2px 3px yellow;
+}
+
+.toggle-theme.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+    background-color: #cecece;
+}
