@@ -59,7 +59,7 @@ module.exports = {
         icon: `src/images/logo-dragon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
