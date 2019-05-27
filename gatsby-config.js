@@ -47,20 +47,6 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `dragonza-blog`,
-        short_name: `blog`,
-        start_url: `/`,
-        background_color: `#22992e`,
-        theme_color: `#2a9928`,
-        display: `minimal-ui`,
-        // display: `standalone`,
-        icon: `src/images/logo-dragon.png`, // This path is relative to the root of the site.
-      },
-    },
-    // `gatsby-plugin-offline`,
-    {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
@@ -77,6 +63,20 @@ module.exports = {
         anonymize: true,
       },
     },
-    'gatsby-plugin-dark-mode'
+    'gatsby-plugin-dark-mode',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `dragonza-blog`,
+        short_name: `blog`,
+        start_url: `/`,
+        background_color: `#22992e`,
+        theme_color: `#2a9928`,
+        display: `minimal-ui`,
+        // display: `standalone`,
+        icon: `src/images/logo-dragon.png`, // This path is relative to the root of the site.
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 }
