@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 
 const Contact = () => (
   <Layout>
-    <form name="contact" method="POST" netlify>
+    <form name="contact" method="POST" netlify action="/success">
       <p>
         <label>Your Name: <input type="text" name="name" /></label>
       </p>
