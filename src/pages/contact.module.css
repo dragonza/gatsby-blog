@@ -1,0 +1,16 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  /*height: 1rem*/
+}
+
+.buttonSubmit {
+  background: #3f94bd;
+  border-width: 0;
+  box-shadow: none;
+  color: #ffffff;
+  padding: .5rem 4rem;
+}
