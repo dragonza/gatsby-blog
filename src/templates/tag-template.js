@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
+import tagTemplateStyles from './tag-templete.module.css'
 // import "../pages/post.css"
 
 function Tags(props) {
@@ -10,11 +11,15 @@ function Tags(props) {
     <Layout>
       <h1>{`Available posts in ${tag}`}</h1>
       <div className="tags">
-        {posts.map(({ node }, i) => (
-          <Link to={node.fields.slug} key={i}>
-            {node.frontmatter.title}
-          </Link>
-        ))}
+        <ul>
+          {posts.map(({ node }, i) => (
+            <li>
+              <Link to={node.fields.slug} key={i} className={tagTemplateStyles.link}>
+                {node.frontmatter.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </Layout>
   )

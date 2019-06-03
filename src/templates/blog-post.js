@@ -5,7 +5,7 @@ import { graphql } from "gatsby"
 import Metatags from "../components/SEO"
 import Share from "../components/Share"
 import PrevNext from "../components/PrevNext"
-import ToggleTheme from '../components/ToggleTheme'
+import blogPostStyles from './blog-post.module.css'
 
 function BlogPost({ pageContext, data, location }) {
   const post = data.markdownRemark
@@ -32,10 +32,10 @@ function BlogPost({ pageContext, data, location }) {
         <div>
           <span>Tagged in </span>
           {tags.map((tag, i) => (
-            <a href={`/${tag}`} key={i} style={{ marginLeft: "10px" }} >{tag}</a>
+            <a href={`/${tag}`} key={i} style={{ marginLeft: "10px" }} className={blogPostStyles.tagItem}>{tag}</a>
           ))}
         </div>
-        <Share title={title} url={url} pathname={location.pathname} />
+        {/*<Share title={title} url={url} pathname={location.pathname} />*/}
 
         <PrevNext prev={prev && prev.node} next={next && next.node} />
       </div>

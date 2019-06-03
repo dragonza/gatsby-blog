@@ -1,0 +1,11 @@
+.tagsContainer {
+
+}
+
+.tagItem {
+  border-radius: 5px;
+  overflow: hidden;
+  background: dodgerblue;
+  color: #ffffff;
+  padding: .4rem;
+}
