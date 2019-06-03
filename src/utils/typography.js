@@ -23,6 +23,10 @@ oceanBeachTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   'h1, h2, h3': {
     color: 'var(--textTitle)',
   },
+  ul: {
+    listStyle: 'none',
+    margin: 0
+  }
 })
 const typography = new Typography(oceanBeachTheme)
 
