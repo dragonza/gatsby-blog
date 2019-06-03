@@ -1,0 +1,10 @@
+.githubLink {
+  color: dodgerblue;
+}
+
+.imageContainer {
+  width: 400px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0 auto;
+}
