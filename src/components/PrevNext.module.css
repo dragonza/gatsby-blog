@@ -1,0 +1,24 @@
+.prev a {
+  color: sandybrown;
+  text-decoration: underline;
+}
+
+.next a {
+  color: coral;
+  text-decoration: underline;
+}
+
+.prev {
+  align-self: flex-start;
+}
+
+.next {
+  align-self: flex-end;
+}
+
+.prevNexContainer {
+  padding: .8rem 0 .5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
