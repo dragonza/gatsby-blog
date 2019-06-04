@@ -8,3 +8,14 @@
   overflow: hidden;
   margin: 0 auto;
 }
+
+.socialMediaContainer {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.socialMediaItem {
+  margin-right: 1rem;
+  color: var(--social-media)
+}
