@@ -27,6 +27,8 @@
 
 body {
     --green: #0F9D58;
+    --lighter-green: #29d682;
+    --white: #ffffff;
     --bg: white;
     --textNormal: #222;
     --textTitle: var(--green);
@@ -38,10 +40,10 @@ body {
 
 body.dark {
     -webkit-font-smoothing: antialiased;
-
+    --social-media: var(--white);
     --bg: rgb(30,34,39);
     --textNormal: rgba(255, 255, 255, 0.88);
-    --textTitle: var(--green);
+    --textTitle: var(--lighter-green);
     --textLink: yellow;
     --hr: hsla(0, 0%, 100%, 0.2);
 }
