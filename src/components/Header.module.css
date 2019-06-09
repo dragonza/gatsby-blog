@@ -4,14 +4,14 @@
   box-shadow:0 0 5px #cccccc;
   position: -webkit-sticky;
   position: sticky;
-  top: 10px;
+  top: 0px;
   z-index: 999;
 }
 
 .contentContainer {
   margin: 0 auto;
   max-width: 960px;
-  padding: 1.45rem 1.0875rem;
+  padding: 1rem 1.0875rem;
   display: flex;
   flex-direction: column;
   background-color: var(--bg);
