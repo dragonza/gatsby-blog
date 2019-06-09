@@ -10,7 +10,7 @@ import blogPostStyles from './blog-post.module.css'
 function BlogPost({ pageContext, data, location }) {
   const post = data.markdownRemark
   const url = data.site.siteMetadata.siteUrl
-  const { title, description, tags } = post.frontmatter
+  const { title, description, tags, date } = post.frontmatter
   const thumbnail =
     post.frontmatter.image && post.frontmatter.image.childImageSharp.resize.src
   const { prev, next } = pageContext
@@ -24,18 +24,23 @@ function BlogPost({ pageContext, data, location }) {
         url={url}
         pathname={location.pathname}
       />
-      <div>
+      <div className="blog-post-container">
         <h1>{title}</h1>
+        <div>
+          <span>Last updated by </span>
+          <span className={blogPostStyles.date}>{date}</span>
+        </div>
         {<Img fluid={post.frontmatter.image.childImageSharp.fluid} />}
-        <h1>content</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className="blog-post-content">
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </div>
         <div>
           <span>Tagged in </span>
           {tags.map((tag, i) => (
-            <a href={`/${tag}`} key={i} style={{ marginLeft: "10px" }} className={blogPostStyles.tagItem}>{tag}</a>
+            <a href={`/${tag}`} key={i} style={{ marginLeft: "10px" }} className={`tag-item ${blogPostStyles.tagItem}`}>{tag}</a>
           ))}
         </div>
-        {/*<Share title={title} url={url} pathname={location.pathname} />*/}
+        <Share title={title} url={url} pathname={location.pathname} />
 
         <PrevNext prev={prev && prev.node} next={next && next.node} />
       </div>
@@ -50,6 +55,7 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
+        date(formatString: "MMMM Do YYYY")
         title
         tags
         description

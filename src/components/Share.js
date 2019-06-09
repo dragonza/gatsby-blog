@@ -1,26 +1,26 @@
 import React from 'react'
 import twitterIcon from '../images/twitter.png'
 import fbIcon from '../images/facebook.png'
-// import './share.css'
+import shareStyle from './Share.module.css'
 
 const Share = props => {
 
   const twitter = `https://twitter.com/intent/tweet?url=${props.url +
-  props.pathname}&text=${props.title} by @saigowthamr`;
+  props.pathname}&text=${props.title} by @dragonzal`;
 
-  const fb = `https://www.facebook.com/sharer/sharer.php?u=${props.url +
-  props.pathname}`;
+  const fb = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(props.url +
+  props.pathname)}`;
 
   return (
     <div>
       <h3 className="center">Share</h3>
-      <ul className="social">
-        <li>
+      <ul className={shareStyle.social}>
+        <li className={shareStyle.socialItem}>
           <a href={fb} target="blank">
             <img src={fbIcon} alt="facebook" />
           </a>
         </li>
-        <li>
+        <li className={shareStyle.socialItem}>
           <a href={twitter} target="blank">
             <img src={twitterIcon} alt="twitter" />
           </a>
