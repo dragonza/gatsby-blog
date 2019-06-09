@@ -9,7 +9,7 @@ function Tags(props) {
   const { tag } = props.pageContext
   return (
     <Layout>
-      <h1>{`Available posts in ${tag}`}</h1>
+      <h1>Available posts in <span className={tagTemplateStyles.tag}>{tag}</span></h1>
       <div className="tags">
         <ul>
           {posts.map(({ node }, i) => (

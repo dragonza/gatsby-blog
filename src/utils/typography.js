@@ -26,6 +26,12 @@ oceanBeachTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   ul: {
     listStyle: 'none',
     margin: 0
+  },
+  pre: {
+    fontSize: 'inherit'
+  },
+  blockquote: {
+    color: 'var(--textNormal)',
   }
 })
 const typography = new Typography(oceanBeachTheme)
