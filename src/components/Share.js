@@ -15,12 +15,12 @@ const Share = props => {
       <h3 className="center">Share</h3>
       <ul className={shareStyle.social}>
         <li >
-          <a href={fb} target="blank" className={shareStyle.facebook}>
+          <a href={fb} target="blank" className={shareStyle.facebook} aria-label="share on facebook">
             <FontAwesomeIcon icon={['fab', 'facebook-f']} />
           </a>
         </li>
         <li>
-          <a href={twitter} target="blank" className={shareStyle.twitter}>
+          <a href={twitter} target="blank" className={shareStyle.twitter} aria-label="share on twitter">
             <FontAwesomeIcon icon={['fab', 'twitter']} />
 
           </a>
