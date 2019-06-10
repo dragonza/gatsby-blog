@@ -64,6 +64,7 @@ class Layout extends React.Component {
             <div className={layoutStyle.toggleContainer}>
               {this.state.theme !== null ? (
                 <Toggle
+                  aria-label="darktheme"
                   icons={false}
                   className='toggle-theme'
                   checked={this.state.theme === 'dark'}
