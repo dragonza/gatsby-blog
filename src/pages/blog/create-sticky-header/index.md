@@ -9,7 +9,9 @@ tags: ['javascript', 'css']
 ## What we want to achieve
 
 <div style="text-align: center">
-  <img src="./demo.gif" style="text-align: center" alt="finised-demo">
+ <video autoplay="autoplay" loop="loop" width="500" height="300">
+   <source src="./demo.mp4" type="video/mp4" />
+   <img src="video.gif" width="400" height="300" /></video>
 </div>
 
 There are a few ways to make the header stick to the view.
@@ -103,7 +105,9 @@ In our example, the header will stay relative to our container until we start sc
 To illustrate it clearer, let's make our header sticky at `top: 20px` and give some content above the header. Now it would look like this:
 
 <div style="text-align: center">
-  <img src="./demo1.gif" style="text-align: center" alt="second-demo">
+  <video autoplay="autoplay" loop="loop" width="600" height="400">
+     <source src="./demo1.mp4" type="video/mp4" />
+     <img src="video.gif" width="400" height="300" /></video>
 </div>
 
 Pretty neat and simple right? However, the support for this value is quite poor. See <a rel="noopener href="https://caniuse.com/#search=sticky" target="_blank">caniuse</a> for more info. 
