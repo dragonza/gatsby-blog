@@ -27,7 +27,6 @@ function BlogPost({ pageContext, data, location }) {
       <div className="blog-post-container">
         <h1>{title}</h1>
         <div>
-          <span>Last updated by </span>
           <span className={blogPostStyles.date}>{date}</span>
         </div>
         {<Img fluid={post.frontmatter.image.childImageSharp.fluid} />}

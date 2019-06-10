@@ -7,5 +7,5 @@
 }
 
 .date {
-  color: coral;
+  composes: date from '../pages/index.module.css'
 }

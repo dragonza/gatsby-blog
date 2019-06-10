@@ -9,7 +9,7 @@ tags: ['javascript', 'css']
 ## What we want to achieve
 
 <div style="text-align: center">
-  <img src="./demo.gif" style="text-align: center">
+  <img src="./demo.gif" style="text-align: center" alt="finised-demo">
 </div>
 
 There are a few ways to make the header stick to the view.
@@ -17,7 +17,7 @@ In this tutorial, I will show you some solutions that I found.
 
 ## Using CSS
 
-The most straightforward way is to use css <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank">position: sticky</a> position.
+The most straightforward way is to use css <a rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank">position: sticky</a> position.
 This css attribute enables us to stick an element to the viewport 
 
 Let's say we have our html as below
@@ -103,10 +103,10 @@ In our example, the header will stay relative to our container until we start sc
 To illustrate it clearer, let's make our header sticky at `top: 20px` and give some content above the header. Now it would look like this:
 
 <div style="text-align: center">
-  <img src="./demo1.gif" style="text-align: center">
+  <img src="./demo1.gif" style="text-align: center" alt="second-demo">
 </div>
 
-Pretty neat and simple right? However, the support for this value is quite poor. See <a href="https://caniuse.com/#search=sticky" target="_blank">caniuse</a> for more info. 
+Pretty neat and simple right? However, the support for this value is quite poor. See <a rel="noopener href="https://caniuse.com/#search=sticky" target="_blank">caniuse</a> for more info. 
 To make it work across browsers, we need to apply Polyfill to make it work well with a wide range of browsers.
 
 ## Using JS and CSS
@@ -136,13 +136,13 @@ window.addEventListener('scroll', () => {
   }
 });
 ```
- * `offsetTop` will return the <a href="https://www.w3schools.com/jsref/prop_element_offsettop.asp" target="_blank">top position (in pixels) relative to the top of the offsetParent element</a>.
+ * `offsetTop` will return the <a rel="noopener" href="https://www.w3schools.com/jsref/prop_element_offsettop.asp" target="_blank">top position (in pixels) relative to the top of the offsetParent element</a>.
 In our case, it will return the top position of the header relative to the `app-container`, which is also counting from the top of our viewport.
  * `window.pageYOffset` will return the number indicating how far we have scrolled long the horizontal axis. 
 
 This works pretty well so far, but there is one bugging issue. When we our header become `fixed`, the content jumps up abruptly. This is because when we apply `position: fixed` to the header, it is no longer taking up space in the document.
 Therefore, the section will jump up to take up the exact height of the header.
-You can see the demo in this <a href="https://codepen.io/Dragonza/pen/oRKmVj?editors=1111" target="_blank">pen</a>
+You can see the demo in this <a rel="noopener" href="https://codepen.io/Dragonza/pen/oRKmVj?editors=1111" target="_blank">pen</a>
 
 To fix this, we need to add a padding top to the parent element the same value as the height of our header
 and reset it when we scroll back to the top. 
@@ -167,7 +167,7 @@ window.addEventListener('scroll', () => {
 
 * `offsetHeight` will return the height of an element including vertical padding and borders, as an integer
 
-You can see full demo at this <a href="https://codepen.io/Dragonza/pen/oRKVKo?editors=1111" target="_blank">pen</a>
+You can see full demo at this <a rel="noopener" href="https://codepen.io/Dragonza/pen/oRKVKo?editors=1111" target="_blank">pen</a>
 
 That is it! Thank you for taking time reading this blog!
 
