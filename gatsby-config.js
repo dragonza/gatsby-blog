@@ -3,8 +3,8 @@ module.exports = {
     title: 'Dragonza.io',
     description:
       'Just an ordinary developer who loves coding, guitar playing, video games and dragons',
-    author: 'Dragonza',
-    siteUrl: 'https:/dragonza.io',
+    author: 'Ngoc Vuong',
+    siteUrl: 'https://dragonza.io',
     menuLinks: [
       {
         name: 'Blog',

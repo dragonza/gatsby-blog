@@ -34,7 +34,6 @@ exports.createPages = ({ actions, graphql }) => {
         }
       `).then(result => {
         if (result.errors) {
-          console.log(result.errors)
           return reject(result.errors)
         }
         const blogTemplate = path.resolve("./src/templates/blog-post.js")

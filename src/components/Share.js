@@ -1,7 +1,7 @@
 import React from 'react'
-import twitterIcon from '../images/twitter.png'
-import fbIcon from '../images/facebook.png'
 import shareStyle from './Share.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classnames from 'classnames';
 
 const Share = props => {
 
@@ -10,19 +10,19 @@ const Share = props => {
 
   const fb = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(props.url +
   props.pathname)}`;
-
   return (
-    <div>
+    <div className="post-social">
       <h3 className="center">Share</h3>
       <ul className={shareStyle.social}>
-        <li className={shareStyle.socialItem}>
-          <a href={fb} target="blank">
-            <img src={fbIcon} alt="facebook" />
+        <li >
+          <a href={fb} target="blank" className={shareStyle.facebook}>
+            <FontAwesomeIcon icon={['fab', 'facebook-f']} />
           </a>
         </li>
-        <li className={shareStyle.socialItem}>
-          <a href={twitter} target="blank">
-            <img src={twitterIcon} alt="twitter" />
+        <li>
+          <a href={twitter} target="blank" className={shareStyle.twitter}>
+            <FontAwesomeIcon icon={['fab', 'twitter']} />
+
           </a>
         </li>
       </ul>
