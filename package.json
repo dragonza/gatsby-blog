@@ -1,9 +1,9 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
-  "description": "First taste writing blog with Gatsby",
+  "description": "Personal Blog by Ngoc Vuong",
   "version": "0.1.0",
-  "author": "dragonza Vuong",
+  "author": "Ngoc Vuong",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-brands-svg-icons": "^5.9.0",
@@ -11,6 +11,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "babel-jest": "^24.8.0",
     "babel-preset-gatsby": "^0.1.11",
+    "classnames": "^2.2.6",
     "eslint-config-react-app": "^4.0.1",
     "gatsby": "^2.4.3",
     "gatsby-image": "^2.0.41",
