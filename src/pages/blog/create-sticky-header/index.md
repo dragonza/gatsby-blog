@@ -3,7 +3,7 @@ title: 'Creating sticky header at the top of a page'
 description: How to create a sticky element when reaching a threshold of scrolling
 date: '2019-06-09'
 image: 'sticky-header.jpg'
-tags: ['javascript', 'css']
+tags: ['javascript', 'css', 'frontend']
 ---
 
 ## What we want to achieve
@@ -115,7 +115,10 @@ To illustrate it clearer, let's make our header sticky at `top: 20px` and give s
   </video>
 </div>
 
-Pretty neat and simple right? However, the support for this value is quite poor. See <a rel="noopener href="https://caniuse.com/#search=sticky" target="\_blank">caniuse</a> for more info.
+Pretty neat and simple right? However, the support for this value is quite poor. 
+See
+<a rel="noopener" href="https://caniuse.com/#search=sticky" target="_blank"> caniuse </a> 
+for more info.
 To make it work across browsers, we need to apply Polyfill to make it work well with a wide range of browsers.
 
 ## Using JS and CSS
