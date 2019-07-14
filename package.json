@@ -31,7 +31,7 @@
     "gatsby-transformer-sharp": "^2.1.19",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.14",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
