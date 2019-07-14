@@ -3,7 +3,7 @@ title: 'Creating sticky header at the top of a page'
 description: How to create a sticky element when reaching a threshold of scrolling
 date: '2019-06-09'
 image: 'sticky-header.jpg'
-tags: ['javascript', 'css']
+tags: ['javascript', 'css', 'frontend']
 ---
 
 ## What we want to achieve

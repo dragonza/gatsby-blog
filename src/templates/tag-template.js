@@ -11,7 +11,7 @@ function Tags(props) {
     <Layout>
       <h1>Available posts in <span className={tagTemplateStyles.tag}>{tag}</span></h1>
       <div className="tags">
-        <ul>
+        <ul className={tagTemplateStyles.blogList}>
           {posts.map(({ node }, i) => (
             <li>
               <Link to={node.fields.slug} key={i} className={tagTemplateStyles.link}>
