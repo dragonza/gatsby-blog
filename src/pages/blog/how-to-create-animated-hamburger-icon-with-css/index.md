@@ -13,7 +13,7 @@ In this blog, you will learn how to create an animated hamburger icon when being
 ##Demo
 
 <div style="text-align: center">
- <video autoplay="autoplay" loop="loop" width="500" height="300">
+ <video autoplay="autoplay" loop="loop" width="100%" height="300">
    <source src="./hamburger-icon.mp4" type="video/mp4" />
    </video>
 </div>
@@ -115,7 +115,7 @@ $transition-time: 0.2s;
 Here is what we got
 
 <div style="text-align: center">
- <video autoplay="autoplay" loop="loop" width="500" height="300">
+ <video autoplay="autoplay" loop="loop" width="100%" height="300">
    <source src="./line-2.mp4" type="video/mp4" />
    </video>
 </div>
@@ -171,7 +171,7 @@ For `transition` to work out for `top/bottom`, we have to declare such propertie
 ```
 
 <div style="text-align: center">
- <video autoplay="autoplay" loop="loop" width="500" height="300">
+ <video autoplay="autoplay" loop="loop" width="100%" height="300">
    <source src="./shift-position.mp4" type="video/mp4" />
    </video>
 </div>
