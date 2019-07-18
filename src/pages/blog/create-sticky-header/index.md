@@ -9,9 +9,9 @@ tags: ['javascript', 'css', 'frontend']
 ## What we want to achieve
 
 <div style="text-align: center">
- <video autoplay="autoplay" loop="loop" width="500" height="300">
+ <video autoplay="autoplay" loop="loop" width="100%" height="300">
    <source src="./demo.mp4" type="video/mp4" />
-   <img src="sticky-header.jpg" width="500" height="300" alt='placeholder-image' />
+   <img src="sticky-header.jpg" width="100%" height="300" alt='placeholder-image' />
    </video>
 </div>
 
@@ -109,9 +109,9 @@ In our example, the header will stay relative to our container until we start sc
 To illustrate it clearer, let's make our header sticky at `top: 20px` and give some content above the header. Now it would look like this:
 
 <div style="text-align: center">
-  <video autoplay="autoplay" loop="loop" width="600" height="400">
+  <video autoplay="autoplay" loop="loop" width="100%" height="400">
      <source src="./demo1.mp4" type="video/mp4" />
-     <img src="sticky-header.jpg" width="600" height="400" alt='placeholder-image' />
+     <img src="sticky-header.jpg" width="100%" height="400" alt='placeholder-image' />
   </video>
 </div>
 
