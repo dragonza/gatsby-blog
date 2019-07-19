@@ -11,13 +11,9 @@ tags: ['css', 'tutorial', 'frontend']
 In this blog, you will learn how to create an animated hamburger icon when being hovered over by using Pure CSS.
 
 ##Demo
-
 <div style="text-align: center">
- <video autoplay="autoplay" loop="loop" width="100%" height="300">
-   <source src="./hamburger-icon.mp4" type="video/mp4" />
-   </video>
+    <img src='hamburger-icon.gif' alt='demo' />
 </div>
-
 ## Implementation
 
 ### Initial styling
@@ -91,7 +87,7 @@ body {
 What we want to achieve is to make the second line disappear,
 the first and third lines move to the center and rotate 45deg and 135deg respectively. In this case,
 we can use `transition` to create the animation effect. This selector comes with a few properties in terms of effect, timing, delay and duration, which allows us
-to create smooth effect. 
+to create smooth effect.
 
 To begin with, let's make the second line shrink in and disappear.
 We can achieve that by using scale and transform.
@@ -115,9 +111,7 @@ $transition-time: 0.2s;
 Here is what we got
 
 <div style="text-align: center">
- <video autoplay="autoplay" loop="loop" width="100%" height="300">
-   <source src="./line-2.mp4" type="video/mp4" />
-   </video>
+    <img src='line-2.gif' alt='line-2' />
 </div>
 
 <br />
@@ -171,9 +165,8 @@ For `transition` to work out for `top/bottom`, we have to declare such propertie
 ```
 
 <div style="text-align: center">
- <video autoplay="autoplay" loop="loop" width="100%" height="300">
-   <source src="./shift-position.mp4" type="video/mp4" />
-   </video>
+ <img src='shift-position.gif' alt='shift-position' />
+
 </div>
 
 Look promising! Now we can focus on making it rotate.
@@ -214,8 +207,8 @@ $transition-delay: 0.5s;
   top: 0;
   margin-bottom: $line-space;
   // highlight-start
-  transition: top $transition-time ease $transition-delay, 
-              transform $transition-time ease;
+  transition: top $transition-time ease $transition-delay, transform
+      $transition-time ease;
   // highlight-end
 }
 
@@ -223,51 +216,49 @@ $transition-delay: 0.5s;
   bottom: 0;
   margin-top: $line-space;
   // highlight-start
-  transition: bottom $transition-time ease $transition-delay,
-              transform $transition-time ease;
+  transition: bottom $transition-time ease $transition-delay, transform
+      $transition-time ease;
   // highlight-end
-
 }
 
 .menu-icon:hover {
-    .line-1 {
-      top: $line-offsetY;
-      transform: rotate(45deg);
-        // highlight-start
-      transition: top $transition-time ease,
-                  transform $transition-time ease $transition-delay;
-      // highlight-end
+  .line-1 {
+    top: $line-offsetY;
+    transform: rotate(45deg);
+    // highlight-start
+    transition: top $transition-time ease, transform $transition-time ease
+        $transition-delay;
+    // highlight-end
+  }
 
-    }
-    
-    .line-2 {
-      transform: scale(0);
-    }
-    
-    .line-3 {
-      bottom: $line-offsetY;
-      transform: rotate(135deg);
-      // highlight-start
-      transition: bottom $transition-time ease,
-                  transform $transition-time ease $transition-delay;
-      // highlight-end
-    }
+  .line-2 {
+    transform: scale(0);
+  }
+
+  .line-3 {
+    bottom: $line-offsetY;
+    transform: rotate(135deg);
+    // highlight-start
+    transition: bottom $transition-time ease, transform $transition-time ease
+        $transition-delay;
+    // highlight-end
+  }
 }
 ```
 
 The key here is to know where to put the `transition-delay`.
 Since we want the lines to rotate after the shift while the icon is being hovered, we need
 to declare the delay for `transform` in the hover state. When we un-hover the icon, the rotation would go before the lines shift back to their initial position,
-we would need to delay the `top/bottom` in their initial state. 
-  
+we would need to delay the `top/bottom` in their initial state.
+
 This challenge has given me a hard time to figure it out that because I would typically
 use `transition` for the initial state and never think about it. It took me a few hours to have an aha moment but it was interesting to learn.
 You can see the demo with the code <a href="https://codepen.io/Dragonza/pen/NZLzPB?editors=0100">here</a>.
- 
-If you are not a fan of `transition`, you can also use `animation` selector to create the same result. 
+
+If you are not a fan of `transition`, you can also use `animation` selector to create the same result.
 
 This tutorial is a challenge from <a href="https://100dayscss.com/?dayIndex=1">100dayscsschallenge</a>. Give it a try if you want to level up your css skills.
 
-That's it! Thank you for taking your time to read the blog. Any feedback is appreciated. 
+That's it! Thank you for taking your time to read the blog. Any feedback is appreciated.
 
 <hr />

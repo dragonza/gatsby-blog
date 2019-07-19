@@ -7,14 +7,9 @@ tags: ['javascript', 'css', 'frontend']
 ---
 
 ## What we want to achieve
-
 <div style="text-align: center">
- <video autoplay="autoplay" loop="loop" width="100%" height="300">
-   <source src="./demo.mp4" type="video/mp4" />
-   <img src="sticky-header.jpg" width="100%" height="300" alt='placeholder-image' />
-   </video>
+    <img src='demo.gif' alt='demo' />
 </div>
-
 There are a few ways to make the header stick to the view.
 In this tutorial, I will show you some solutions that I found.
 
@@ -109,12 +104,8 @@ In our example, the header will stay relative to our container until we start sc
 To illustrate it clearer, let's make our header sticky at `top: 20px` and give some content above the header. Now it would look like this:
 
 <div style="text-align: center">
-  <video autoplay="autoplay" loop="loop" width="100%" height="400">
-     <source src="./demo1.mp4" type="video/mp4" />
-     <img src="sticky-header.jpg" width="100%" height="400" alt='placeholder-image' />
-  </video>
+    <img src='demo1.gif' alt='demo1' />
 </div>
-
 Pretty neat and simple right? However, the support for this value is quite poor. 
 See
 <a rel="noopener" href="https://caniuse.com/#search=sticky" target="_blank"> caniuse </a> 
