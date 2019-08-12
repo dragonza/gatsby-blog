@@ -1,7 +1,7 @@
 ---
 title: 'CSS Challenge Day 2 - Animated sunrise and sunset over pyramid'
 description: How to create animated sunrise and sunset over a pyramid with css
-date: '2019-08-012'
+date: '2019-08-12'
 image: 'sunrise.jpg'
 tags: ['css', 'tutorial', 'frontend']
 ---
