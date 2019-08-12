@@ -166,7 +166,6 @@ For `transition` to work out for `top/bottom`, we have to declare such propertie
 
 <div style="text-align: center">
  <img src='shift-position.gif' alt='shift-position' />
-
 </div>
 
 Look promising! Now we can focus on making it rotate.
@@ -257,7 +256,7 @@ You can see the demo with the code <a href="https://codepen.io/Dragonza/pen/NZLz
 
 If you are not a fan of `transition`, you can also use `animation` selector to create the same result.
 
-This tutorial is a challenge from <a href="https://100dayscss.com/?dayIndex=1">100dayscsschallenge</a>. Give it a try if you want to level up your css skills.
+This is a challenge I found from <a href="https://100dayscss.com/?dayIndex=1">100dayscsschallenge</a>. Give it a try if you want to level up your css skills.
 
 That's it! Thank you for taking your time to read the blog. Any feedback is appreciated.
 
