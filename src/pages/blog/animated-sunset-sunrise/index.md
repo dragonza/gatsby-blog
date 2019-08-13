@@ -36,7 +36,7 @@ To begin with, let's create the html structure.
 </div>
 ```
 Next is the basic css styling for these components. First we need to style the body to expand the whole width and height of current view. 
-Then, we need to create a container with a black background.
+Then, we create a container with a black background.
 
 ```scss
 body {
@@ -59,9 +59,9 @@ $container-size: 400px;
 }
 
 ```
-Next, we need to style our `frame` which will contain all of our components.
-Let's say we want our frame to be about 200px less in size of our container. You can choose whichever number as you wish.
-To make our frame has a round shape, it is important to have `overflow: hidden` and `border-radius: 50%`
+Next, we will style a `frame` to contain all of our components.
+Let's say we want the frame to be about 200px less in size of our container. You can choose whichever number as you wish.
+To make the frame a round shape, it is important to have `overflow: hidden` and `border-radius: 50%`
 
 ```scss
 $frame-size: $container-size - 200px;
@@ -80,9 +80,9 @@ Here is what we got
 </div>
 
 ### Creating the sky, ground
-The proportion of the sky and ground would be 70 and 30 respectively. You can adjust the number for your own reference.
+The proportion of the sky and ground could be 70 and 30 respectively. You can adjust the number for your own reference.
 In this tutorial, I found these two numbers feasible to use. 
-We would want to set both components `position: relative` so that we could make their child components in place when we set them `position: absolute` later.
+We would want to set both components `position: relative` to make it possible to position their children components with `position:absolute`
 ```scss
 .sky {
   background: #00d6ff;
@@ -102,12 +102,12 @@ We would want to set both components `position: relative` so that we could make 
 When I first tried this challenge, I thought of using `:after` and `:before` along with creating borders for the elements to make the triangles of the pyramid.
 If you are curious about that technique, you can read more
 <a alt="triangle-techniques-with-css" href="http://blog.michelledinan.com/08/2012/drawing-triangles-with-css/#obtuse" target="_blank">here</a>.
-However, after a bit of the hassle, I discovered that there was another easier way to do it, which is to use
+However, after a bit of the hassle, I discovered that there was an easier way to do it, which is to use
 <a alt="clip-path" href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path">clip-path</a>. `clip-path` allows 
 us to create a wide variety of shapes for our components.
 
 To create the pyramid, instead of creating two obtuse triangles leaning on each other, we can create a normal triangle and having an obtuse one on top of it.
-By doing this, it would save us the pain of keeping two triangles matching angles. 
+By doing this, it would save us the pain of keeping two triangles matching angles with each other. 
 
 ```scss
 $pyramid-width-left: 130px;
@@ -140,7 +140,7 @@ $pyramid-left-position: 40px;
 }
 ```
 
-To give us the freedom of position of two triangles, it would make sense to make them `position: absolute`.
+To give us the freedom of position of two triangles, it would make sense to have `position: absolute` for such components.
 In the code, let's make the height, left position and the width of the big triangle into variables.
 They would make it possible for us create relative position between the two triangles. 
 Let's make two blocks, one for big triangle and one for smaller one.
@@ -151,8 +151,8 @@ Here we have a grey box being on top of white one.
     <img src="demo2.png" alt="frame" />
 </div>
 
-Here is the fun part, let's shape these boxes into triangles with `clip-path`. We will use a property to `polygon`. 
-`polygon` allows us to pass in as many pairs of coordinates by percentages of the component to clip the shape.
+Here is the fun part, let's shape these boxes into triangles with `clip-path`. We will use a property called `polygon`. 
+`polygon` allows us to pass in as many pairs of coordinates by percentages of the component to clip the box into shape.
 (0, 0) is the top left of the component.
 
 To clip a box into a triangle, we need three points, I have made two images to make it easier to illustrate how we can do it.
@@ -252,8 +252,8 @@ $shadow-left-position: 50px;
 </div>
 
 # Creating <a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank">animation</a>
-We have all the components, it's time for the fancy animation. To create animation for our elements, we will use css 
-`animation` and `keyframe` to define rules for such animations.
+We have all the components, it's time for the fancy animation. We will use css 
+`animation` and `keyframe` to define rules for such animation.
 
 ## Moving sun
 Below is how we do it in css.
@@ -286,18 +286,18 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.49, 1);
   }
 }
 ```
-At this step, the sun is actually spin around itself. I have make the sun square so that we can see the spinning.
+At this step, the sun is actually spinning around itself. I have made the sun square so that we can see the spinning.
 
 <div style="text-align: center; margin: 0 auto; margin-bottom: 20px">
     <img src="demo8.gif" alt="spinning-sun" />
 </div>
 
-But here is the magic, if we change <a target="_blank" href="https://www.w3schools.com/cssref/css3_pr_transform-origin.asp">transform-origin</a> to `50% 400%`, and we have our sunrise and sunset.
+But here is the magic, if we change <a target="_blank" href="https://www.w3schools.com/cssref/css3_pr_transform-origin.asp">transform-origin</a> to `50% 400%`, then we will have our sunrise and sunset.
 This is because `transform-origin` allows us to change the position of transformed elements. 
 In other words, the position where the rotation based on has changed. 
 
-The default `transition-origin` is 50% 50% which is the center of the element. 
-In our case, it is right at the center of the sun. When we give it a value of `50% 400%`, we have moved that position along y-axis four times the height of the sun. 
+The default `transition-origin` is 50% 50% which is at the center of the element. 
+In our case, it is at the center of the sun. When we give it a value of `50% 400%`, we have moved that position along y-axis four times the height of the sun. 
 I chose the value of `400%` because it would make the sun move across the frame. You can definitely choose whichever you find fit. 
 
 However, we need to place the sun in the middle of the frame for the sun to move across the frame as we expected.
@@ -359,8 +359,8 @@ To reverse the animation, we can declare `animation-direction: reverse` or using
 To animate the shadow, we need to change the pointy corner of the triangle to different position in the `keyframe`.
 That pointy angle would move from the right to the left of the pyramid as the sun moves. 
 
-We can do that by modify the third arguments of the `polygon` to run from 140% to -40% of the `x-axis`
-And to make the shadow shrink while the sun is at the top of the pyramid, we can scale the shadow to a value smaller than its original at the middle of our animation cycle.
+We can do that by modifying the third arguments of the `polygon` to run from 140% to -40% of the `x-axis`
+And to make the shadow shrink while the sun is at the top of the pyramid, we can scale the shadow to a value smaller than 1 at the middle of our animation cycle.
 
 
 ```scss
@@ -403,7 +403,7 @@ And to make the shadow shrink while the sun is at the top of the pyramid, we can
 ```
 
 ### Creating the animation for the frame
-Last but not least, if you look at the demo, you would see that the frame actually has the effect of fade-in and fade-out as the sun goes up and off.
+Last but not least, if you look at the demo, you would see that the frame actually has the effect of fade-in and fade-out as the sun goes up and down.
 To make it simple, I prefer to create the fading effect for the frame instead of creating fading effect for the sky and the ground. 
 What we are doing here is to make the `opacity` change value from 0.3 to 1 in the animation cycle. 
 
@@ -438,11 +438,12 @@ What we are doing here is to make the `opacity` change value from 0.3 to 1 in th
   }
 }
 ```
+And we have created an animated sunrise and sunset over a pyramid with pure CSS.
 
 # Summary
 Here are a few notes to take away from this tutorial
 - Transition-origin can be helpful to control transform movement in some cases.
-- `clip-path` is very handy when it comes to clipping shape of an element.
+- `clip-path` could be very handy when it comes to clipping shape of an element.
 - Animation direction could help to reduce creating two animation rules in some cases (changing colors two sides of the pyramid)
 
 
