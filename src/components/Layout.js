@@ -8,6 +8,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
+import Hamburger from './Hamburger'
 import layoutStyle from './layout.module.css'
 import Header from './Header'
 import Toggle from 'react-toggle'
@@ -16,6 +17,7 @@ import Helmet from 'react-helmet'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import SideMenu from './SideMenu'
 library.add(fab, faCheckSquare, faCoffee)
 
 class Layout extends React.Component {
@@ -28,6 +30,13 @@ class Layout extends React.Component {
     window.__onThemeChange = () => {
       this.setState({ theme: window.__theme })
     }
+  }
+
+  handleMenuClick = () => {
+    console.log('clicked');
+    this.setState({
+      isMenuActive: !this.state.isMenuActive
+    })
   }
 
   render() {
@@ -49,10 +58,6 @@ class Layout extends React.Component {
         `}
         render={data => (
           <>
-            <Header
-              siteTitle={data.site.siteMetadata.title}
-              menuLinks={data.site.siteMetadata.menuLinks}
-            />
             <Helmet
               meta={[
                 {
@@ -60,6 +65,12 @@ class Layout extends React.Component {
                   content: this.state.theme === 'light' ? '#ffa8c5' : '#282c35',
                 },
               ]}
+            />
+            <Header
+              theme={this.state.theme}
+              onMenuClick={this.handleMenuClick}
+              siteTitle={data.site.siteMetadata.title}
+              menuLinks={data.site.siteMetadata.menuLinks}
             />
             <div className={layoutStyle.toggleContainer}>
               {this.state.theme !== null ? (
@@ -81,9 +92,6 @@ class Layout extends React.Component {
             <div className={layoutStyle.mainContainer}>
               <main className="main-container">{children}</main>
             </div>
-            {/*<footer style={{ background: 'rgba(33,43,54,.5)', color: '#fff' }}>*/}
-            {/*  Footer*/}
-            {/*</footer>*/}
           </>
         )}
       />

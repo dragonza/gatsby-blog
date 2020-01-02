@@ -1,42 +1,43 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
 import Image from '../components/Image'
-import headerStyle from './Header.module.css'
+import Hamburger from './Hamburger'
+import SideMenu from './SideMenu'
+import './header.scss'
+import Nav from './Nav'
 
-const Header = ({ siteTitle, menuLinks }) => (
-  <header className={headerStyle.header}>
-    <div className={headerStyle.contentContainer}>
-      <div className={headerStyle.logoAndNavContainer}>
-        <Link to="/" className={headerStyle.siteNameContainer}>
-          <div className={headerStyle.logoContainer}>
+const Header = ({ siteTitle, menuLinks, theme }) => {
+  const [isMenuActive, activeMenu] = useState(false)
+  console.log('isMenuActive', isMenuActive)
+  return (
+    <header className="header">
+      <div className="header__content">
+        <Link to="/" className="header__brand">
+          <div className="header__logo">
             <Image imgName="logo-dragon.png" />
           </div>
-          <span className={headerStyle.siteNameTitle}>
-          <b>{siteTitle}</b>
-        </span>
+          <span className="header__site-title">
+            <b>{siteTitle}</b>
+          </span>
         </Link>
-        <nav>
-          <ul className={headerStyle.navContainer}>
-            {menuLinks.map(link => {
-              return (
-                <li key={link.link} className={headerStyle.navItem}>
-                  <Link
-                    to={link.link}
-                    // style={{ color: '#fff' }}
-                    activeStyle={{ fontWeight: 'bold', color: 'var(--green)' }}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
-        </nav>
+        <Nav menuLinks={menuLinks}/>
+        <div className="icon icon--hamburger">
+          <Hamburger
+            theme={theme}
+            onMenuClick={() => console.log('test') || activeMenu(!isMenuActive)}
+          />
+        </div>
+        <SideMenu
+          menuLinks={menuLinks}
+          isMenuActive={isMenuActive}
+          theme={theme}
+          onOverLayClick={() => activeMenu(!isMenuActive)}
+        />
       </div>
-    </div>
-  </header>
-)
+    </header>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

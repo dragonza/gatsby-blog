@@ -1,8 +1,7 @@
 import React from 'react'
 
 import Layout from '../components/Layout'
-import contactStyle from './contact.module.css';
-
+import contactStyle from './contact.module.css'
 
 const Contact = () => (
   <Layout>
@@ -17,23 +16,30 @@ const Contact = () => (
       <p>
         <label className={contactStyle.formGroup}>
           Name*:
-          <input required type="text" name="name" className={contactStyle.input}/>
+          <input
+            required
+            type="text"
+            name="name"
+            className={contactStyle.input}
+          />
         </label>
       </p>
       <p>
         <label required className={contactStyle.formGroup}>
           Email*:
-          <input type="email" name="name" />
+          <input type="email" name="name" className={contactStyle.input} />
         </label>
       </p>
       <p>
         <label required className={contactStyle.formGroup}>
           Message*:
-          <textarea name="message" rows="4" />
+          <textarea name="message" rows="4" className={contactStyle.input} />
         </label>
       </p>
       <p>
-        <button className={contactStyle.buttonSubmit} type="submit">Send</button>
+        <button className={contactStyle.buttonSubmit} type="submit">
+          Send
+        </button>
       </p>
     </form>
   </Layout>

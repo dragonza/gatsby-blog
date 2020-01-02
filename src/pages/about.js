@@ -11,7 +11,7 @@ const About = () => (
     </div>
 
     <h3>Hi there!</h3>
-    <p>My name is Ngoc Vuong!</p>
+    <p>My name is Ngoc Vuong! I also go with the name Alex!</p>
     <p>
       I am a self-taught front-end developer who is passionate about technology.
       I would love to understand things to their fundamentals and write about
@@ -23,14 +23,14 @@ const About = () => (
     </p>
 
     <p>
-      I have worked as a developer for more than 4 years. If you are curious
-      about my work. You can take a look
+      I have worked as a developer since 2015. If you are curious
+      about my work, you can take a look
       <a href="https://dragonza.github.io" className={aboutStyles.githubLink}>
         {' '}
         here
       </a>
     </p>
-
+    <div>You can find me at</div>
     <div className={aboutStyles.socialMediaContainer}>
       <a href="https://medium.com/@Dragonza" className={aboutStyles.socialMediaItem}>
         <FontAwesomeIcon icon={['fab', 'medium-m']} size="2x" />
