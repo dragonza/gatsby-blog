@@ -29,6 +29,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    'gatsby-plugin-sass',
     {
       resolve: `gatsby-transformer-remark`,
       options: {
