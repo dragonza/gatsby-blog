@@ -258,6 +258,4 @@ If you are not a fan of `transition`, you can also use `animation` selector to c
 
 This is a challenge I found from <a href="https://100dayscss.com/?dayIndex=1">100dayscsschallenge</a>. Give it a try if you want to level up your css skills.
 
-That's it! Thank you for taking your time to read the blog. Any feedback is appreciated.
-
-<hr />
+That's it! Thank you for taking your time to read the blog.

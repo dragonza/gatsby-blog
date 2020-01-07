@@ -447,8 +447,4 @@ Here are a few notes to take away from this tutorial
 - Animation direction could help to reduce creating two animation rules in some cases (changing colors two sides of the pyramid)
 
 
-
-That's it! Thank you reading this blog until this end. 
-
-
-<hr />
+That's it! Thank you reading!
