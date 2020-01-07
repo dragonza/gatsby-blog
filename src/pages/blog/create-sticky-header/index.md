@@ -177,5 +177,3 @@ window.addEventListener('scroll', () => {
 You can see full demo at this <a rel="noopener" href="https://codepen.io/Dragonza/pen/oRKVKo?editors=1111" target="_blank">pen</a>
 
 That is it! Thank you for taking time reading this blog!
-
-<hr />
