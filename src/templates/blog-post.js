@@ -33,6 +33,9 @@ function BlogPost({ pageContext, data, location }) {
         <div className="blog-post-content">
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>
+
+        <hr />
+
         <div>
           <span>Tagged in </span>
           {tags.map((tag, i) => (
@@ -54,7 +57,7 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        date(formatString: "MMMM Do YYYY")
+        date(formatString: "MMMM Do, YYYY")
         title
         tags
         description
