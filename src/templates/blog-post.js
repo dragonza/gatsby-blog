@@ -2,13 +2,14 @@ import React from "react"
 import Layout from "../components/Layout"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
-import Metatags from "../components/SEO"
+import SEO from "../components/SEO"
 import Share from "../components/Share"
 import PrevNext from "../components/PrevNext"
 import blogPostStyles from './blog-post.module.css'
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 
 function BlogPost({ pageContext, data, location }) {
-  const post = data.markdownRemark
+  const post = data.mdx
   const url = data.site.siteMetadata.siteUrl
   const { title, description, tags, date } = post.frontmatter
   const thumbnail =
@@ -17,7 +18,8 @@ function BlogPost({ pageContext, data, location }) {
 
   return (
     <Layout>
-      <Metatags
+      <SEO
+        keywords={tags}
         title={title}
         description={description}
         thumbnail={url + thumbnail}
@@ -31,7 +33,7 @@ function BlogPost({ pageContext, data, location }) {
         </div>
         {<Img fluid={post.frontmatter.image.childImageSharp.fluid} />}
         <div className="blog-post-content">
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <MDXRenderer>{post.body}</MDXRenderer>
         </div>
 
         <hr />
@@ -54,8 +56,8 @@ export default BlogPost
 
 export const query = graphql`
   query PostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         date(formatString: "MMMM Do, YYYY")
         title

@@ -12,7 +12,7 @@ import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 library.add(fab, faCheckSquare, faCoffee)
 
 const IndexPage = props => {
-  const postList = props.data.allMarkdownRemark
+  const postList = props.data.allMdx
 
   return (
     <Layout>
@@ -35,7 +35,7 @@ const IndexPage = props => {
 export default IndexPage
 export const listQuery = graphql`
   query ListQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
           fields {
