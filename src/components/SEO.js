@@ -111,10 +111,10 @@ function SEO({ description, lang, meta, keywords, title, pathname, url, thumbnai
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: 'en',
   meta: [],
   keywords: [],
-  description: ``,
+  description: '',
 }
 
 SEO.propTypes = {

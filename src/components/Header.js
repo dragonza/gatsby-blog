@@ -9,7 +9,6 @@ import Nav from './Nav'
 
 const Header = ({ siteTitle, menuLinks, theme }) => {
   const [isMenuActive, activeMenu] = useState(false)
-  console.log('isMenuActive', isMenuActive)
   return (
     <header className="header">
       <div className="header__content">
@@ -25,7 +24,7 @@ const Header = ({ siteTitle, menuLinks, theme }) => {
         <div className="icon icon--hamburger">
           <Hamburger
             theme={theme}
-            onMenuClick={() => console.log('test') || activeMenu(!isMenuActive)}
+            onMenuClick={() => activeMenu(!isMenuActive)}
           />
         </div>
         <SideMenu
@@ -44,7 +43,7 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: '',
 }
 
 export default Header
