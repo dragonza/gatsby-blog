@@ -2,7 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import tagTemplateStyles from './tag-templete.module.css'
-// import "../pages/post.css"
 
 function Tags(props) {
   const posts = props.data.allMarkdownRemark.edges
