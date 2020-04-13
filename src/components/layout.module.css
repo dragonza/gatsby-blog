@@ -1,6 +1,6 @@
 .main-container {
   margin: 0 auto;
-  max-width: 750px;
+  max-width: 680px;
   padding: 0 1.0875rem 1.45rem 1.0875rem;
   color: var(--textNormal);
   /*transition: color 0.2s ease-out, background 0.2s ease-out;*/

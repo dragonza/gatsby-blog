@@ -31,7 +31,7 @@ function BlogPost({ pageContext, data, location }) {
         <div>
           <span className={blogPostStyles.date}>{date}</span>
         </div>
-        {<Img fluid={post.frontmatter.image.childImageSharp.fluid} />}
+        {post.frontmatter.image && <Img fluid={post.frontmatter.image.childImageSharp.fluid} />}
         <div className="blog-post-content">
           <MDXRenderer>{post.body}</MDXRenderer>
         </div>
