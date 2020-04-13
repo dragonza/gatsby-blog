@@ -56,7 +56,9 @@
   "keywords": [
     "gatsby"
   ],
-  "resolutions": { "sharp": "0.24.0" },
+  "resolutions": {
+    "sharp": "0.24.0"
+  },
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
