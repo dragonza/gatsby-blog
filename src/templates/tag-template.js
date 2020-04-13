@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import tagTemplateStyles from './tag-templete.module.css'
 
 function Tags(props) {
-  const posts = props.data.allMarkdownRemark.edges
+  const posts = props.data.allMdx.edges
   const { tag } = props.pageContext
   return (
     <Layout>

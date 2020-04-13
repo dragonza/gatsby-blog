@@ -41,7 +41,7 @@ function BlogPost({ pageContext, data, location }) {
         <div>
           <span>Tagged in </span>
           {tags.map((tag, i) => (
-            <a href={`/${tag}`} key={i} style={{ marginLeft: "10px" }} className={`tag-item ${blogPostStyles.tagItem}`}>{tag}</a>
+            <a href={`/tags/${tag}`} key={i} style={{ marginLeft: "10px" }} className={`tag-item ${blogPostStyles.tagItem}`}>{tag}</a>
           ))}
         </div>
         <Share title={title} url={url} pathname={location.pathname} />
