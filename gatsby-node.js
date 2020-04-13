@@ -50,7 +50,7 @@ const createTagPage = (createPage, edges) => {
 
   allTags.forEach(tag => {
     createPage({
-      path: `tags//${_.kebabCase(tag)}/`,
+      path: `tags/${_.kebabCase(tag)}/`,
       component: tagsTemplate,
       context: {
         tag,
