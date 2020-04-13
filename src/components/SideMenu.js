@@ -14,7 +14,7 @@ class SideMenu extends Component {
     });
     return (
       <aside className={sideMenuClasses}>
-        <div className="side-menu__overlay" onClick={onOverLayClick}/>
+        <div className="side-menu__overlay" onClick={onOverLayClick} />
         <Nav menuLinks={menuLinks} className={sideMenuContentClasses} />
       </aside>
     );

@@ -8,7 +8,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import Hamburger from './Hamburger'
+import { MDXProvider } from '@mdx-js/react'
+
 import layoutStyle from './layout.module.css'
 import Header from './Header'
 import Toggle from 'react-toggle'
@@ -17,7 +18,6 @@ import Helmet from 'react-helmet'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
-import SideMenu from './SideMenu'
 library.add(fab, faCheckSquare, faCoffee)
 
 class Layout extends React.Component {
@@ -33,9 +33,8 @@ class Layout extends React.Component {
   }
 
   handleMenuClick = () => {
-    console.log('clicked');
     this.setState({
-      isMenuActive: !this.state.isMenuActive
+      isMenuActive: !this.state.isMenuActive,
     })
   }
 
@@ -77,7 +76,7 @@ class Layout extends React.Component {
                 <Toggle
                   aria-label="darktheme"
                   icons={false}
-                  className='toggle-theme'
+                  className="toggle-theme"
                   checked={this.state.theme === 'dark'}
                   onChange={e =>
                     window.__setPreferredTheme(
@@ -90,7 +89,7 @@ class Layout extends React.Component {
               )}
             </div>
             <div className={layoutStyle.mainContainer}>
-              <main className="main-container">{children}</main>
+              <MDXProvider>{children}</MDXProvider>
             </div>
           </>
         )}
@@ -98,9 +97,6 @@ class Layout extends React.Component {
     )
   }
 }
-// const Layout = ({ children }) => (
-//
-// )
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

@@ -3,7 +3,7 @@ module.exports = {
     title: 'Dragonza.io',
     description:
       'Just an ordinary developer who loves coding, guitar playing, video games and dragons',
-    author: 'Ngoc Vuong',
+    author: 'Alex Vuong',
     siteUrl: 'https://dragonza.io',
     menuLinks: [
       {
@@ -31,31 +31,38 @@ module.exports = {
     },
     'gatsby-plugin-sass',
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        plugins: [
+        gatsbyRemarkPlugins: [
           "gatsby-remark-copy-linked-files",
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1035
+            }
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: "language-",
               inlineCodeMarker: null,
               aliases: {},
-              showLineNumbers: false,
+              showLineNumbers: true,
               noInlineHighlight: false,
             },
           },
+        ],
+        // Repeat config for gatsby-remark-images here to work around bug in gatsby-plugin-mdx
+        plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 590,
-            },
+              maxWidth: 1035
+            }
           },
         ],
-      },
+        extensions: ['.md']
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,

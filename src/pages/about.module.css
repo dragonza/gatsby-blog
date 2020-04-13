@@ -3,7 +3,7 @@
 }
 
 .imageContainer {
-  width: 400px;
+  width: 100%;
   border-radius: 6px;
   overflow: hidden;
   margin: .5rem auto 0 auto;
@@ -19,4 +19,10 @@
 .socialMediaItem {
   margin-right: 1rem;
   color: var(--social-media)
+}
+
+@media screen and (min-width: 500px) {
+  .imageContainer {
+    width: 400px;
+  }
 }

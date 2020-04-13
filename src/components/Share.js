@@ -1,7 +1,6 @@
 import React from 'react'
 import shareStyle from './Share.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classnames from 'classnames';
 
 const Share = props => {
 

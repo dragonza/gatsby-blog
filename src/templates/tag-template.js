@@ -2,7 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import tagTemplateStyles from './tag-templete.module.css'
-// import "../pages/post.css"
 
 function Tags(props) {
   const posts = props.data.allMarkdownRemark.edges
@@ -29,7 +28,7 @@ export default Tags
 
 export const query = graphql`
   query TagsQuery($tag: String!) {
-    allMarkdownRemark(
+    allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { eq: $tag } } }

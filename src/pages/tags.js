@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 
 function TagsPage(props) {
 
-  const data = props.data.allMarkdownRemark.group
+  const data = [] || props.data.allMarkdownRemark.group
 
   return (
     <Layout>
@@ -27,15 +27,15 @@ function TagsPage(props) {
 export default TagsPage;
 
 
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(
-      limit: 2000) {
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
-      }
-    }
-  }
-
-`
+// export const pageQuery = graphql`
+//   query {
+//     mdx(
+//       limit: 2000) {
+//       group(field: frontmatter___tags) {
+//         fieldValue
+//         totalCount
+//       }
+//     }
+//   }
+//
+// `
