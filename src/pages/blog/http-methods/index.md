@@ -5,7 +5,7 @@ date: '2020-04-11'
 tags: ['http', 'fundamentals', 'restapi']
 ---
 
-HTTP Methods are actions you would like to perform on the server. They are part of HTTP request. There are a total of 7 HTTP methods:
+HTTP Methods are actions you would like to perform on the server. They are part of HTTP request.
 
 - GET
 - POST
@@ -14,6 +14,7 @@ HTTP Methods are actions you would like to perform on the server. They are part 
 - HEAD
 - PATCH
 - OPTIONS
+- CONNECT
 
 ## GET method
 This is one of the most common methods used in websites. It is used to request data from a specified resource. 
@@ -41,7 +42,7 @@ name1=value1&name2=value2
 ```
 
 ## PUT method
-PUT is also one of the common HTTP methods.
+PUT is also one of the most common HTTP methods.
 It is used to update/create data to a resource. [PUT requests are idempotent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT), which means calling it once or more will produce the same result. 
 
 Example 
@@ -63,10 +64,10 @@ The difference between PUT and POST requests is stated in the [RFC 2616 §9.5ff]
 
 In other words, `POST` is used to create/update a resource if you do not know the exact specified URI of where the new resource should locate. 
 For example, if you want to create a user, you may send a POST request to `/users/register` and the server will create user object based on the data in the request body. 
-Since you don't know the exact URL to call for creating a user, so POST is used in this case
+That is because you don't know the exact URL to call for creating a user.
 Remember, POST requests are non-idempotent, so making a POST request twice on the same URI would create two resources. 
 
-In the other hand, `PUT` should be used to create/update to a resource to a particular URI that is known by client.
+On the other hand, `PUT` should be used to create/update to a resource to a particular URI that is known by client.
 For example, PUT request to `/users/1/blog/2/comments/2` to modify a user's comment with id 2 on a blog post (assumed that 2 is the id in that URI).
 
 
@@ -82,12 +83,40 @@ Example:
 DELETE /file.html HTTP/1.1 
 ```
 ## PATCH method
-
+PATCH requests are similar to PUT,
+but it only applied partial modification to a resource. 
+This means that the request body should only contain a partial data to modify a 
+resource instead of a complete one. Besides, PATCH request is *non-idempotent*
 
 ## OPTIONS method
+`OPTIONS` method shows the communication options for the target resource.
+
+Example:
+```
+OPTIONS /index.html HTTP/1.1
+OPTIONS * HTTP/1.1
+```
+
+A response sample would contain `allow` header:
+
+```
+HTTP/1.1 204 No Content
+Allow: OPTIONS, GET, HEAD, POST
+Cache-Control: max-age=604800
+Date: Thu, 13 Oct 2016 11:45:00 GMT
+Expires: Thu, 20 Oct 2016 11:45:00 GMT
+Server: EOS (lax004/2813)
+x-ec-custom-error: 1
+```
+(source: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS)
+
+## CONNECT
+
+`CONNECT` method creates two-way communication with the resource. This is a less common method. It is not safe and idempotent.
 
 ## References
 
--  https://tools.ietf.org/html/rfc7231#section-4.3.4
+- https://tools.ietf.org/html/rfc7231#section-4.3.4
 - https://stackoverflow.com/questions/630453/put-vs-post-in-rest
 - https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods

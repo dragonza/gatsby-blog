@@ -21,9 +21,13 @@
 /*}*/
 
 .gatsby-highlight pre[class*="language-"].line-numbers {
-  padding: 0;
-  padding-left: 2.8em;
+  padding: 1rem 0 1em 2.8em;
   overflow: hidden;
+}
+
+.line-numbers .line-numbers-rows {
+  padding-top: 1rem;
+  padding-left: .3rem;
 }
 
 .gatsby-highlight-code-line {
