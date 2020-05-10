@@ -6,8 +6,6 @@ image: 'sidemenu.jpg'
 tags: ['css', 'tutorial', 'react']
 ---
 
-<br />
-
 In today's tutorial, I will show you how to create a side menu component using React and CSS
 
 # Demo

@@ -1,12 +1,12 @@
-import React from "react"
-import Layout from "../components/Layout"
-import Img from "gatsby-image"
-import { graphql } from "gatsby"
-import SEO from "../components/SEO"
-import Share from "../components/Share"
-import PrevNext from "../components/PrevNext"
+import React from 'react'
+import Layout from '../components/Layout'
+import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
+import SEO from '../components/SEO'
+import Share from '../components/Share'
+import PrevNext from '../components/PrevNext'
 import blogPostStyles from './blog-post.module.css'
-import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
 function BlogPost({ pageContext, data, location }) {
   const post = data.mdx
@@ -31,7 +31,10 @@ function BlogPost({ pageContext, data, location }) {
         <div>
           <span className={blogPostStyles.date}>{date}</span>
         </div>
-        {post.frontmatter.image && <Img fluid={post.frontmatter.image.childImageSharp.fluid} />}
+        {post.frontmatter.image && (
+          <Img fluid={post.frontmatter.image.childImageSharp.fluid} />
+        )}
+        <br />
         <div className="blog-post-content">
           <MDXRenderer>{post.body}</MDXRenderer>
         </div>
@@ -41,7 +44,14 @@ function BlogPost({ pageContext, data, location }) {
         <div>
           <span>Tagged in </span>
           {tags.map((tag, i) => (
-            <a href={`/tags/${tag}`} key={i} style={{ marginLeft: "10px" }} className={`tag-item ${blogPostStyles.tagItem}`}>{tag}</a>
+            <a
+              href={`/tags/${tag}`}
+              key={i}
+              style={{ marginLeft: '10px' }}
+              className={`tag-item ${blogPostStyles.tagItem}`}
+            >
+              {tag}
+            </a>
           ))}
         </div>
         <Share title={title} url={url} pathname={location.pathname} />
