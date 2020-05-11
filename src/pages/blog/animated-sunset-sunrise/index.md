@@ -6,8 +6,6 @@ image: 'sunrise.jpg'
 tags: ['css', 'tutorial', 'frontend']
 ---
 
-<br />
-
 I have been starting to take CSS Challenges recently. Some of them are actually very interesting and entertaining to learn and create.
 Today, I will write about Day 2 challenge which is to create an animated sunrise and sunset over a pyramid using CSS
 

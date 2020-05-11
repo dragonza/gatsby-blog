@@ -6,11 +6,9 @@ image: 'hamburger.jpg'
 tags: ['css', 'tutorial', 'frontend']
 ---
 
-<br />
-
 In this blog, you will learn how to create an animated hamburger icon when being hovered over by using Pure CSS.
 
-##Demo
+## Demo
 <div style="text-align: center">
     <img src='hamburger-icon.gif' alt='demo' />
 </div>

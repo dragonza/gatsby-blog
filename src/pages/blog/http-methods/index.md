@@ -2,6 +2,7 @@
 title: 'HTTP Methods and when to use them'
 description: HTTP Methods and when to use them
 date: '2020-04-11'
+image: 'http-method.jpg'
 tags: ['http', 'fundamentals', 'restapi']
 ---
 
