@@ -1,5 +1,5 @@
 ---
-title: 'Building a multiple blog post type with Gatsby'
+title: 'Building multiple blog post types on a Gatsby Website'
 description: How to create multiple blog post type in a Gatsby Blogging website
 date: '2020-08-05'
 image: 'gatsby-blog-type.jpg'
