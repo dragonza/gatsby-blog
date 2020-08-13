@@ -47,16 +47,14 @@ Navigate to [http://localhost:8000/](http://localhost:8000/), you will see a blo
 </div>
 
 so, at this point, we only have one template for blog post, which is located at `src/templates/blog-post`. 
-Let's say we want to a have content which we want to use a different template. Let's call it `project page`. If we want the Gatsby site to be able to consume different templates for various blog type. 
+Let's say we want to have content which we want to use a different template. Let's call it `project page`. If we want the Gatsby site to be able to consume different templates for various blog type. 
 
 Here are what we need to do:  
 
 - Create a new folder for different blog type
 - Add source system file for new folder content in `gatsby-config` 
 - Create Project Page template
-- Edit `gatsby-node.js` to apply different templates for different type of blog post inside `createPage` API
-- Edit Blog Post template to not query `project page` content
-
+- Edit `gatsby-node.js` to apply different templates for some blog types inside `createPage` API
 
 ## 1. Create a new folder for different blog type
 
@@ -66,7 +64,7 @@ Here are what we need to do:
 
 </div>
 
-First we need to add a projects folder and add a new post to it. The post should contain two required a title, date and description which Gatsby will query as frontmatter. 
+First, we need to add a `projects` folder and add a new post to it. The post should contain two required a title, date, and description which Gatsby will query as frontmatter. 
 Importantly, we need to add one more field `type` to distinguish different type of post, which we will use to tell Gatsby which template to use during build time
   
 
@@ -81,7 +79,7 @@ post: project
 
 ## 2. Add source system file for new folder content in `gatsby-config.js`
 
-Next we need to tell Gatsby to source the files the `project` folder into the application, as the same way we do with the blog content
+Next, we need to tell Gatsby to source the files the `project` folder into the application, as the same way we do with the blog content
 
 ```
 {
@@ -125,9 +123,9 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
 }
 ```
  
-## 4.Edit `gatsby-node.js` to apply different templates for different type of blog post inside `createPage` API
+## 4. - Edit `gatsby-node.js` to apply different templates for some blog types inside `createPage` API
 
-During the creating pages step, we query all the markdown to get all the nodes, each of which contains data about each blog post. We will iterate through each node and create page with `createPage` API.
+During the creating pages step, we query all the markdown to get all the nodes, each of which contains data about each blog post. We will iterate through each node and create a page with `createPage` API.
 To make it work for project page template, first, we need to import the template, we can put it under the blog post import
 
 ```js
@@ -213,9 +211,9 @@ If we click on the first post, we will see the project template is used correctl
 
 </div>
 
-That is the basic of using different templates in Gatsby. 
+That is the basic way of using different templates in Gatsby. 
 
-In some use cases, you may want to separate into different queries or filter them by absolutePath so you can use these data easily in your components. For example:
+In some use cases, you may not want to query all the markdown. You can use GraphQL filter to only query the markdown content in a specific path by using `absolutePath`. For example:
 
 ```js
 export const listQuery = graphql`
@@ -260,5 +258,7 @@ export const listQuery = graphql`
 }
 `
 ``` 
+
+In this example, `blog` and `project` are aliases, so you can use them in your component as `props.data.blog` and `props.data.projects`
 
 That's it for today! Thanks for reading. 
