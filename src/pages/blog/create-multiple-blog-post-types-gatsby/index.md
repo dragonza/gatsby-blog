@@ -261,4 +261,6 @@ export const listQuery = graphql`
 
 In this example, `blog` and `project` are aliases, so you can use them in your component as `props.data.blog` and `props.data.projects`
 
+You can find the full repo [here](https://github.com/dragonza/gatsby-mutiple-blog-post-types)
+
 That's it for today! Thanks for reading. 
