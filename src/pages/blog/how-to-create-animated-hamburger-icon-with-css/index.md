@@ -3,7 +3,7 @@ title: 'Creating animated hamburger menu icon'
 description: How to create a animated hamburger icon with css
 date: '2019-07-11'
 image: 'hamburger.jpg'
-tags: ['css', 'tutorial', 'frontend']
+tags: ['css', 'frontend']
 ---
 
 In this blog, you will learn how to create an animated hamburger icon when being hovered over by using Pure CSS.

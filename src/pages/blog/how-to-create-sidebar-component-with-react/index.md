@@ -3,12 +3,12 @@ title: 'How to create a side menu component with ReactJS'
 description: Learn to create side menu component using React and CSS
 date: '2020-01-06'
 image: 'sidemenu.jpg'
-tags: ['css', 'tutorial', 'react']
+tags: ['css', 'react']
 ---
 
 In today's tutorial, I will show you how to create a side menu component using React and CSS
 
-# Demo
+## Demo
 
 <div style="text-align: center">
     <img src='demo.gif' alt='demo' />
@@ -17,11 +17,11 @@ In today's tutorial, I will show you how to create a side menu component using R
 What we want to create in this tutorial is a `SideMenu` will slide from the left of our page when users click on the hamburger icon.
 The menu would slide back to the left if users click on the overlay outside of the component
 
-# Implementation
+## Implementation
 
 Let's create a React by using `create-react-app`
 
-## Initialize the project
+### Initialize the project
 
 ```
 npx create-react-app sidemenu-component
@@ -56,7 +56,7 @@ Our page will look like this:
 
 <br />
 
-## Creating SideMenu and basic styling
+### Creating SideMenu and basic styling
 
 Now, let's create the SideMenu Component.
 
@@ -126,7 +126,7 @@ The overlay will take up 100% of width and height of its parent and have an opac
 
 Don't forget to have `pointer-events: none;` on the `side-menu`. Let's just leave it there for now. I will explain more about that later on.
 
-## Icon Component
+### Icon Component
 
 The SideMenu will show up when we click on the icon and it will take `fill` and `onMenuClick` as props.
 I am using a svg, you can use whatever element you wish as long as it has a click event.
@@ -180,7 +180,7 @@ export default Hamburger
 
 (the source code of svg above is from <a href="https://github.com/hamedbaatour/minimus/blob/master/src/app/app.component.html#L33" target="_blank">here</a>. It was written for an Angular project but I modified it a bit to fit a React project)
 
-## Putting all together
+### Putting all together
 
 We can add these two components to our main `App.js` file. The main idea is to make the icon a toggle button.
 This means that our App component will have a state called `isMenuActive` to keep track of SideMenu Component active state.
@@ -304,7 +304,7 @@ Below is what we have got so far:
 </div>
 <br />
 
-## Making the SideMenu reusable
+### Making the SideMenu reusable
 To make the `SideMenu` flexible and reusable, we can pass the content as a child prop from `App.js`.
 
 ```javascript
@@ -355,7 +355,7 @@ class SideMenu extends Component {
 
 By doing, we can reuse this component to different projects without modifying it directly.
 
-## Adding CSS for animation
+### Adding CSS for animation
 
 That is all we need on React side, the final step is to make use of CSS animation magic.
 In this case, there are three properties we need to pay attention to. 

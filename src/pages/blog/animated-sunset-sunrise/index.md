@@ -9,13 +9,13 @@ tags: ['css', 'tutorial', 'frontend']
 I have been starting to take CSS Challenges recently. Some of them are actually very interesting and entertaining to learn and create.
 Today, I will write about Day 2 challenge which is to create an animated sunrise and sunset over a pyramid using CSS
 
-# Demo 
+## Demo 
 You can take a look at the original demo link below.
 
 https://100dayscss.com/?dayIndex=2
 
-# Create static components
-## Creating the frame
+## Create static components
+### Creating the frame
 To begin with, let's create the html structure.
 
 ```html
@@ -77,7 +77,7 @@ Here is what we got
     <img src="demo1.png" alt="frame" />
 </div>
 
-### Creating the sky, ground
+#### Creating the sky, ground
 The proportion of the sky and ground could be 70 and 30 respectively. You can adjust the number for your own reference.
 In this tutorial, I found these two numbers feasible to use. 
 We would want to set both components `position: relative` to make it possible to position their children components with `position:absolute`
@@ -95,7 +95,7 @@ We would want to set both components `position: relative` to make it possible to
 }
 ```
 
-### Creating the pyramid
+#### Creating the pyramid
 
 When I first tried this challenge, I thought of using `:after` and `:before` along with creating borders for the elements to make the triangles of the pyramid.
 If you are curious about that technique, you can read more
@@ -208,7 +208,7 @@ $pyramid-left-position: 40px;
 </div>
 
 
-### Creating the sun and the pyramid's shadow
+#### Creating the sun and the pyramid's shadow
 
 Now, let's create css for the sun.
 The first position of the sun is very important here because it determines the movement of the sun in the animation.
@@ -249,11 +249,11 @@ $shadow-left-position: 50px;
     <img src="demo7.png" alt="the shadow" />
 </div>
 
-# Creating <a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank">animation</a>
+## Creating <a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank">animation</a>
 We have all the components, it's time for the fancy animation. We will use css 
 `animation` and `keyframe` to define rules for such animation.
 
-## Moving sun
+### Moving sun
 Below is how we do it in css.
 ```scss
 $cubic-bezier: cubic-bezier(0.4, 0, 0.49, 1);
@@ -301,7 +301,7 @@ I chose the value of `400%` because it would make the sun move across the frame.
 However, we need to place the sun in the middle of the frame for the sun to move across the frame as we expected.
 That is why I mentioned above the left position is really important. 
 
-## Animating the pyramid 
+### Animating the pyramid 
 We would like to see two sides of the pyramid changing colors as the sun moves. We can define one `keyframe`
 and reuse for the both triangles with opposite animation direction. 
 To reverse the animation, we can declare `animation-direction: reverse` or using inline value on `animation`
@@ -353,7 +353,7 @@ To reverse the animation, we can declare `animation-direction: reverse` or using
     <img src="demo9.gif" alt="spinning-sun" />
 </div>
 
-## Animating the shadow
+### Animating the shadow
 To animate the shadow, we need to change the pointy corner of the triangle to different position in the `keyframe`.
 That pointy angle would move from the right to the left of the pyramid as the sun moves. 
 
@@ -400,7 +400,7 @@ And to make the shadow shrink while the sun is at the top of the pyramid, we can
 }
 ```
 
-### Creating the animation for the frame
+#### Creating the animation for the frame
 Last but not least, if you look at the demo, you would see that the frame actually has the effect of fade-in and fade-out as the sun goes up and down.
 To make it simple, I prefer to create the fading effect for the frame instead of creating fading effect for the sky and the ground. 
 What we are doing here is to make the `opacity` change value from 0.3 to 1 in the animation cycle. 
@@ -438,7 +438,7 @@ What we are doing here is to make the `opacity` change value from 0.3 to 1 in th
 ```
 And we have created an animated sunrise and sunset over a pyramid with pure CSS.
 
-# Summary
+## Summary
 Here are a few notes to take away from this tutorial
 - Transition-origin can be helpful to control transform movement in some cases.
 - `clip-path` could be very handy when it comes to clipping shape of an element.
