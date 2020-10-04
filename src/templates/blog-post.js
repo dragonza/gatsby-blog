@@ -28,7 +28,7 @@ function BlogPost({ pageContext, data, location }) {
       />
       <div className="blog-post-container">
         <h1>{title}</h1>
-        <div>
+        <div className={blogPostStyles.dateWrapper}>
           <span className={blogPostStyles.date}>{date}</span>
         </div>
         {post.frontmatter.image && (
