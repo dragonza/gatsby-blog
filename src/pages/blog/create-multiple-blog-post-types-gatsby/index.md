@@ -1,5 +1,5 @@
 ---
-title: 'Building a multiple blog post type with Gatsby'
+title: 'Building multiple blog post types on a Gatsby Website'
 description: How to create multiple blog post type in a Gatsby Blogging website
 date: '2020-08-05'
 image: 'gatsby-blog-type.jpg'
@@ -260,5 +260,7 @@ export const listQuery = graphql`
 ``` 
 
 In this example, `blog` and `project` are aliases, so you can use them in your component as `props.data.blog` and `props.data.projects`
+
+You can find the full repo [here](https://github.com/dragonza/gatsby-mutiple-blog-post-types)
 
 That's it for today! Thanks for reading. 
