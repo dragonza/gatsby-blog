@@ -9,3 +9,7 @@
 .date {
   composes: date from '../pages/index.module.css'
 }
+
+.dateWrapper {
+  margin-bottom: 16px;
+}
