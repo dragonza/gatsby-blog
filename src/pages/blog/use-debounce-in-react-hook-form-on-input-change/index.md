@@ -245,7 +245,7 @@ The submit button will look like below:
 so now, the submit button will have a disabled state depending on the `isFormValid`. The next step is to know when to update the state.
 
 If you read the document carefully about the `trigger` API on their website, you will notice that it returns a `Promise<boolean>`, which means eventually it will tell you whether the field is valid or not.
-We can make use of that and update the `isValid` object state right after it.
+We can make use of that and update the `isValid` object state right after we trigger the validations.
 
 ```js
 // Some lines are omitted
