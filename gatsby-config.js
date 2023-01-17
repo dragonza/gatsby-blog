@@ -1,8 +1,11 @@
+/**
+ * @type {import('gatsby').GatsbyConfig}
+ */
 module.exports = {
   siteMetadata: {
     title: 'Dragonza.io',
     description:
-      'Just an ordinary developer who loves coding, guitar playing, video games and dragons',
+      'Just a developer who loves coding, guitar playing, video games and dragons',
     author: 'Alex Vuong',
     siteUrl: 'https://dragonza.io',
     menuLinks: [
@@ -12,87 +15,19 @@ module.exports = {
       },
       {
         name: 'About',
-        link: '/about'
+        link: '/about',
       },
       {
         name: 'Contact',
-        link: '/contact'
-      }
+        link: '/contact',
+      },
     ],
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     'gatsby-plugin-sass',
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        gatsbyRemarkPlugins: [
-          "gatsby-remark-copy-linked-files",
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1035
-            }
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: "language-",
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: false,
-              noInlineHighlight: false,
-            },
-          },
-        ],
-        // Repeat config for gatsby-remark-images here to work around bug in gatsby-plugin-mdx
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1035
-            }
-          },
-        ],
-        extensions: ['.md', 'mdx']
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-gtag`,
-      options: {
-        // your google analytics tracking id
-        trackingId: `UA-47069149-2`,
-        // Puts tracking script in the head instead of the body
-        head: false,
-        // enable ip anonymization
-        anonymize: true,
-      },
-    },
-    'gatsby-plugin-dark-mode',
+    'gatsby-plugin-google-gtag',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -106,6 +41,30 @@ module.exports = {
         icon: `src/images/logo-dragon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
+    'gatsby-transformer-remark',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: './src/images/',
+      },
+      __key: 'images',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: `${__dirname}/src/pages`,
+      },
+      __key: 'pages',
+    },
   ],
 }

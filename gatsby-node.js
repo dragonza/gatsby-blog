@@ -20,17 +20,17 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
-const createBlogPost = (createPage, edges) => {
+const createBlogPost = (createPage, posts) => {
   const blogTemplate = path.resolve('./src/templates/blog-post.js')
 
-  edges.forEach(({ node }, index) => {
+  posts.forEach((post, index) => {
     createPage({
-      path: node.fields.slug,
+      path: post.fields.slug,
       component: blogTemplate,
       context: {
-        slug: node.fields.slug,
-        prev: index === 0 ? null : edges[index - 1],
-        next: index === edges.length - 1 ? null : edges[index + 1],
+        slug: post.fields.slug,
+        prev: index === 0 ? null : posts[index - 1],
+        next: index === posts.length - 1 ? null : posts[index + 1],
       }, // additional data can be passed via context
     })
   })
@@ -41,14 +41,14 @@ const createTagPage = (createPage, edges) => {
   //All tags
   let allTags = []
   // Iterate through each post, putting all found tags into `allTags array`
-  _.each(edges, edge => {
+  _.each(edges, (edge) => {
     if (_.get(edge, 'node.frontmatter.tags')) {
       allTags = allTags.concat(edge.node.frontmatter.tags)
     }
   })
   allTags = _.uniq(allTags)
 
-  allTags.forEach(tag => {
+  allTags.forEach((tag) => {
     createPage({
       path: `tags/${_.kebabCase(tag)}/`,
       component: tagsTemplate,
@@ -96,42 +96,39 @@ const createPaginatedPages = (createPage, edges, pathPrefix, context) => {
   })
 }
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(`
-        {
-          allMdx(
-            sort: { order: DESC, fields: [frontmatter___date] }
-            limit: 1000
-          ) {
-            edges {
-              node {
-                fields {
-                  slug
-                  title
-                  tags
-                }
-                frontmatter {
-                  title
-                  tags
-                }
-              }
-            }
+  const result = await graphql(`
+    query {
+      allMdx {
+        nodes {
+          id
+          fields {
+            slug
+            title
+            tags
+          }
+          frontmatter {
+            tags
+            date(formatString: "MMMM DD, YYYY")
+          }
+          internal {
+            contentFilePath
           }
         }
-      `).then(({ data, errors }) => {
-        if (errors) {
-          return reject(errors)
-        }
-        const { edges } = data.allMdx
+      }
+    }
+  `)
 
-        createBlogPost(createPage, edges)
-        createTagPage(createPage, edges)
-      })
-    )
-  })
+  if (result.errors) {
+    reporter.panicOnBuild('Error loading MDX result', result.errors)
+  }
+
+  const posts = result.data.allMdx.nodes
+  console.log('posts', posts)
+  createBlogPost(createPage, posts)
+  // createTagPage(createPage, edges)
+
 }
 
 exports.onCreateWebpackConfig = ({ actions }) => {

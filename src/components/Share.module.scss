@@ -1,5 +1,5 @@
-@value facebook: #3b5998;
-@value twitter: #1da1f2;
+$facebook: #3b5998;
+$twitter: #1da1f2;
 
 .social {
   display: flex;
@@ -18,24 +18,24 @@
 
 .facebook {
   composes: socialItem;
-  border: 1px solid facebook;
-  color: facebook;
+  border: 1px solid $facebook;
+  color: $facebook;
 }
 
 .facebook:hover {
-  background-color: facebook;
-  border-color: facebook;
+  background-color: $facebook;
+  border-color: $facebook;
   color: #fff;
 }
 
 .twitter {
   composes: socialItem;
-  color: twitter;
-  border: 1px solid twitter;
+  color: $twitter;
+  border: 1px solid $twitter;
 }
 .twitter:hover {
-  background-color: twitter;
-  border-color: twitter;
+  background-color: $twitter;
+  border-color: $twitter;
   color: #fff;
 }
 
@@ -43,11 +43,11 @@
   margin: 0.5rem 0.25rem;
 }
 
-
 .post-social .button.googleplus {
   color: #dd4b39;
   border-color: #dd4b39;
 }
+
 .post-social .button.googleplus:hover {
   background-color: #dd4b39;
   border-color: #dd4b39;
@@ -57,11 +57,13 @@
   color: #0077b5;
   border-color: #0077b5;
 }
+
 .post-social .button.linkedin:hover {
   background-color: #0077b5;
   border-color: #0077b5;
   color: #fff;
 }
+
 .post-social .button.reddit {
   color: #ff4500;
   border-color: #ff4500;
@@ -71,10 +73,12 @@
   border-color: #ff4500;
   color: #fff;
 }
+
 .post-social .button.whatsapp {
   color: #128c7e;
   border-color: #128c7e;
 }
+
 .post-social .button.whatsapp:hover {
   background-color: #128c7e;
   border-color: #128c7e;
