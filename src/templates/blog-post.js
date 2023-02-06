@@ -1,94 +1,99 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import SEO from '../components/SEO'
 import Share from '../components/Share'
 import PrevNext from '../components/PrevNext'
-import blogPostStyles from './blog-post.module.css'
-import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
+// import * as blogPostStyles from './blog-post.module.css'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { MDXProvider } from '@mdx-js/react'
 
-function BlogPost({ pageContext, data, location }) {
-  const post = data.mdx
-  const url = data.site.siteMetadata.siteUrl
-  const { title, description, tags, date } = post.frontmatter
-  const thumbnail =
-    post.frontmatter.image && post.frontmatter.image.childImageSharp.resize.src
-  const { prev, next } = pageContext
+const blogPostStyles = {}
+function BlogPost({ pageContext, data, location, children }) {
+    const post = data.mdx
+    console.log('post', post)
+    console.log('children', children)
+    const url = data.site.siteMetadata.siteUrl
+    const { title, description, tags, date } = post.frontmatter
+    let thumbnail = getImage(
+        post.frontmatter.image?.childImageSharp?.gatsbyImageData
+    )
+    console.log('thumbnail', thumbnail)
 
-  return (
-    <Layout>
-      <SEO
-        keywords={tags}
-        title={title}
-        description={description}
-        thumbnail={url + thumbnail}
-        url={url}
-        pathname={location.pathname}
-      />
-      <div className="blog-post-container">
-        <h1>{title}</h1>
-        <div className={blogPostStyles.dateWrapper}>
-          <span className={blogPostStyles.date}>{date}</span>
-        </div>
-        {post.frontmatter.image && (
-          <Img fluid={post.frontmatter.image.childImageSharp.fluid} />
-        )}
-        <br />
-        <div className="blog-post-content">
-          <MDXRenderer>{post.body}</MDXRenderer>
-        </div>
+    const { prev, next } = pageContext
 
-        <hr />
+    return (
+        <Layout>
+            <SEO
+                keywords={tags}
+                title={title}
+                description={description}
+                thumbnail={url + thumbnail}
+                url={url}
+                pathname={location.pathname}
+            />
+            <div className="blog-post-container">
+                <h1>{title}</h1>
+                <div className={blogPostStyles.dateWrapper}>
+                    <span className={blogPostStyles.date}>{date}</span>
+                </div>
+                <GatsbyImage image={thumbnail} />
 
-        <div>
-          <span>Tagged in </span>
-          {tags.map((tag, i) => (
-            <a
-              href={`/tags/${tag}`}
-              key={i}
-              style={{ marginLeft: '10px' }}
-              className={`tag-item ${blogPostStyles.tagItem}`}
-            >
-              {tag}
-            </a>
-          ))}
-        </div>
-        <Share title={title} url={url} pathname={location.pathname} />
+                <br />
+                <div className="blog-post-content">
+                    {/*<MDXProvider components={{}}>{children}</MDXProvider>*/}
+                </div>
 
-        <PrevNext prev={prev && prev.node} next={next && next.node} />
-      </div>
-    </Layout>
-  )
+                <hr />
+
+                <div>
+                    <span>Tagged in </span>
+                    {tags.map((tag, i) => (
+                        <a
+                            href={`/tags/${tag}`}
+                            key={i}
+                            style={{ marginLeft: '10px' }}
+                            className={`tag-item ${blogPostStyles.tagItem}`}
+                        >
+                            {tag}
+                        </a>
+                    ))}
+                </div>
+                <Share title={title} url={url} pathname={location.pathname} />
+
+                <PrevNext prev={prev && prev.node} next={next && next.node} />
+            </div>
+        </Layout>
+    )
 }
 
 export default BlogPost
 
 export const query = graphql`
-  query PostQuery($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
-      body
-      frontmatter {
-        date(formatString: "MMMM Do, YYYY")
-        title
-        tags
-        description
-        image {
-          childImageSharp {
-            resize(width: 1500, height: 1500) {
-              src
+    query PostQuery($slug: String!) {
+        mdx(fields: { slug: { eq: $slug } }) {
+            body
+            frontmatter {
+                date(formatString: "MMMM Do, YYYY")
+                title
+                tags
+                image {
+                    childImageSharp {
+                        gatsbyImageData(
+                            width: 1500
+                            height: 1500
+                            placeholder: BLURRED
+                            formats: [AUTO, WEBP, AVIF]
+                        )
+                    }
+                }
+                description
             }
-            fluid(maxWidth: 786) {
-              ...GatsbyImageSharpFluid
-            }
-          }
         }
-      }
+        site {
+            siteMetadata {
+                siteUrl
+            }
+        }
     }
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
-  }
 `
