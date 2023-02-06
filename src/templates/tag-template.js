@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import tagTemplateStyles from './tag-templete.module.css'
+import * as tagTemplateStyles from './tag-templete.module.css'
 
 function Tags(props) {
     const posts = props.data.allMdx

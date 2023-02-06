@@ -1,19 +1,25 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import Img from 'gatsby-plugin-image'
 import { graphql } from 'gatsby'
 import SEO from '../components/SEO'
 import Share from '../components/Share'
 import PrevNext from '../components/PrevNext'
-import * as blogPostStyles from './blog-post.module.css'
+// import * as blogPostStyles from './blog-post.module.css'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { MDXProvider } from '@mdx-js/react'
 
+const blogPostStyles = {}
 function BlogPost({ pageContext, data, location, children }) {
     const post = data.mdx
+    console.log('post', post)
+    console.log('children', children)
     const url = data.site.siteMetadata.siteUrl
     const { title, description, tags, date } = post.frontmatter
-    const thumbnail =
-        post.frontmatter.image &&
-        post.frontmatter.image.childImageSharp.resize.src
+    let thumbnail = getImage(
+        post.frontmatter.image?.childImageSharp?.gatsbyImageData
+    )
+    console.log('thumbnail', thumbnail)
+
     const { prev, next } = pageContext
 
     return (
@@ -31,11 +37,12 @@ function BlogPost({ pageContext, data, location, children }) {
                 <div className={blogPostStyles.dateWrapper}>
                     <span className={blogPostStyles.date}>{date}</span>
                 </div>
-                {post.frontmatter.image && (
-                    <Img fluid={post.frontmatter.image.childImageSharp.fluid} />
-                )}
+                <GatsbyImage image={thumbnail} />
+
                 <br />
-                <div className="blog-post-content">{children}</div>
+                <div className="blog-post-content">
+                    {/*<MDXProvider components={{}}>{children}</MDXProvider>*/}
+                </div>
 
                 <hr />
 
@@ -65,21 +72,22 @@ export default BlogPost
 export const query = graphql`
     query PostQuery($slug: String!) {
         mdx(fields: { slug: { eq: $slug } }) {
+            body
             frontmatter {
                 date(formatString: "MMMM Do, YYYY")
                 title
                 tags
-                description
                 image {
                     childImageSharp {
-                        resize(width: 1500, height: 1500) {
-                            src
-                        }
-                        fluid(maxWidth: 786) {
-                            ...GatsbyImageSharpFluid
-                        }
+                        gatsbyImageData(
+                            width: 1500
+                            height: 1500
+                            placeholder: BLURRED
+                            formats: [AUTO, WEBP, AVIF]
+                        )
                     }
                 }
+                description
             }
         }
         site {
