@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
@@ -40,6 +41,10 @@ const IndexPage = (props) => {
             ))}
         </Layout>
     )
+}
+
+IndexPage.propTypes = {
+    data: PropTypes.object,
 }
 export default IndexPage
 export const listQuery = graphql`

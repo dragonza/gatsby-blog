@@ -1,11 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import * as tagTemplateStyles from './tag-templete.module.css'
 
+Tags.propTypes = {
+    data: PropTypes.object,
+    pageContext: PropTypes.object,
+}
 function Tags(props) {
     const posts = props.data.allMdx
-    console.log('posts', posts)
     const { tag } = props.pageContext
     return (
         <Layout>
@@ -15,11 +19,10 @@ function Tags(props) {
             </h1>
             <div className="tags">
                 <ul className={tagTemplateStyles.blogList}>
-                    {posts.map(({ node }, i) => (
-                        <li>
+                    {posts.map(({ node }) => (
+                        <li key={node.fields.slug}>
                             <Link
                                 to={node.fields.slug}
-                                key={i}
                                 className={tagTemplateStyles.tag}
                             >
                                 {node.frontmatter.title}

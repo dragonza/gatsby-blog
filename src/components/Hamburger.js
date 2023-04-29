@@ -1,4 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
+Hamburger.propTypes = {
+    fill: PropTypes.string,
+    mode: PropTypes.string,
+    onMenuClick: PropTypes.func,
+}
 
 function Hamburger({ fill = '#594e78', mode, onMenuClick }) {
     return (

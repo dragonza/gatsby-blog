@@ -6,8 +6,7 @@ import SideMenu from './SideMenu'
 import './header.scss'
 import Nav from './Nav'
 import { StaticImage } from 'gatsby-plugin-image'
-
-const Header = ({ siteTitle, menuLinks, mode }) => {
+const Header = ({ siteTitle, menuLinks = [], mode }) => {
     const [isMenuActive, activeMenu] = useState(false)
     return (
         <header className="header">
@@ -44,6 +43,7 @@ const Header = ({ siteTitle, menuLinks, mode }) => {
 Header.propTypes = {
     siteTitle: PropTypes.string,
     mode: PropTypes.string,
+    menuLinks: PropTypes.array,
 }
 
 Header.defaultProps = {

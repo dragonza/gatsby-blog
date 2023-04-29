@@ -5,12 +5,12 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 
-import { mainContainer, toggleContainer } from './layout.module.css'
+import { mainContainer } from './layout.module.css'
 import Header from './Header'
 // import Toggle from 'react-toggle'
 import 'react-toggle/style.css' // for ES6 modules
@@ -21,7 +21,7 @@ import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 library.add(fab, faCheckSquare, faCoffee)
 
 const Layout = ({ children }) => {
-    const [mode, setMode] = useState('light')
+    const [mode] = useState('light')
     const [isMenuActive, setIsMenuActive] = useState(false)
     // useEffect(() => {
     //     setTheme({

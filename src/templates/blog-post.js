@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Layout from '../components/Layout'
 import { graphql } from 'gatsby'
 import SEO from '../components/SEO'
@@ -8,6 +9,12 @@ import * as blogPostStyles from './blog-post.module.css'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { MDXProvider } from '@mdx-js/react'
 
+BlogPost.propTypes = {
+    data: PropTypes.object,
+    location: PropTypes.object,
+    pageContext: PropTypes.object,
+    children: PropTypes.element,
+}
 function BlogPost({ pageContext, data, location, children }) {
     const post = data.mdx
     const url = data.site.siteMetadata.siteUrl

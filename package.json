@@ -12,7 +12,10 @@
         "start": "gatsby develop",
         "build": "gatsby build",
         "serve": "gatsby serve",
-        "clean": "gatsby clean"
+        "clean": "gatsby clean",
+        "lint": "eslint src/",
+        "lint:fix": "eslint --fix",
+        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -37,7 +40,7 @@
         "gatsby-source-filesystem": "^5.4.0",
         "gatsby-transformer-remark": "^6.4.0",
         "gatsby-transformer-sharp": "^5.4.0",
-        "prettier": "^2.8.3",
+        "prettier": "^2.8.8",
         "prismjs": "^1.29.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -47,5 +50,13 @@
         "sass": "^1.57.1",
         "typography": "^0.16.21",
         "typography-theme-ocean-beach": "^0.16.19"
+    },
+    "devDependencies": {
+        "eslint": "^8.39.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-promise": "^6.1.1",
+        "eslint-plugin-react": "^7.32.2"
     }
 }

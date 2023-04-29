@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import * as prevNextStyles from './PrevNext.module.css'
 const PrevNext = (props) => {
     const { prev, next } = props
@@ -24,6 +25,11 @@ const PrevNext = (props) => {
             </ul>
         </div>
     )
+}
+
+PrevNext.propTypes = {
+    prev: PropTypes.object,
+    next: PropTypes.object,
 }
 
 export default PrevNext

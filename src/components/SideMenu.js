@@ -5,7 +5,7 @@ import Nav from './Nav'
 
 class SideMenu extends Component {
     render() {
-        const { isMenuActive, onOverLayClick, menuLinks } = this.props
+        const { isMenuActive, onOverLayClick, menuLinks = [] } = this.props
         const sideMenuClasses = classnames('side-menu', {
             'side-menu--active': isMenuActive,
         })
@@ -23,6 +23,8 @@ class SideMenu extends Component {
 
 SideMenu.propTypes = {
     isMenuActive: PropTypes.bool,
+    onOverLayClick: PropTypes.func,
+    menuLinks: PropTypes.array,
 }
 
 export default SideMenu
