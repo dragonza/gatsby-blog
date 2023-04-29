@@ -65,10 +65,21 @@ module.exports = {
             options: {
                 extensions: [`.mdx`, `.md`],
                 gatsbyRemarkPlugins: [
+                    'gatsby-remark-copy-linked-files',
                     {
-                        resolve: `gatsby-remark-images`,
+                        resolve: 'gatsby-remark-images',
                         options: {
-                            maxWidth: 1200,
+                            maxWidth: 1035,
+                        },
+                    },
+                    {
+                        resolve: `gatsby-remark-prismjs`,
+                        options: {
+                            classPrefix: 'language-',
+                            inlineCodeMarker: null,
+                            aliases: {},
+                            showLineNumbers: false,
+                            noInlineHighlight: false,
                         },
                     },
                 ],
@@ -81,21 +92,22 @@ module.exports = {
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
-                            maxWidth: 800,
+                            maxWidth: 1035,
+                            sizeByPixelDensity: true,
                         },
                     },
                 ],
             },
         },
+        'gatsby-remark-images',
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
         {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'images',
-                path: './src/images/',
+                path: `${__dirname}/src/images`,
             },
-            __key: 'images',
         },
         {
             resolve: 'gatsby-source-filesystem',
@@ -103,7 +115,6 @@ module.exports = {
                 name: 'pages',
                 path: `${__dirname}/src/pages`,
             },
-            __key: 'pages',
         },
     ],
 }

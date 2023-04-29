@@ -7,9 +7,10 @@ tags: ['javascript', 'css', 'frontend']
 ---
 
 ## What we want to achieve
-<div style="text-align: center">
-    <img src='demo.gif' alt='demo' />
-</div>
+
+![demo](./demo.gif)
+
+
 There are a few ways to make the header stick to the view.
 In this tutorial, I will show you some solutions that I found.
 
@@ -103,9 +104,9 @@ This means that the css value will act as `position: relative` within its parent
 In our example, the header will stay relative to our container until we start scrolling. That is because we specified our threshold at `top: 0`.
 To illustrate it clearer, let's make our header sticky at `top: 20px` and give some content above the header. Now it would look like this:
 
-<div style="text-align: center">
-    <img src='demo1.gif' alt='demo1' />
-</div>
+![demo1](./demo1.gif)
+
+
 Pretty neat and simple right? However, the support for this value is quite poor. 
 See
 <a rel="noopener" href="https://caniuse.com/#search=sticky" target="_blank"> caniuse </a> 

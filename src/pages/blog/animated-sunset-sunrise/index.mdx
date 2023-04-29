@@ -6,10 +6,10 @@ image: 'sunrise.jpg'
 tags: ['css', 'tutorial', 'frontend']
 ---
 
-I have been starting to take CSS Challenges recently. Some of them are actually very interesting and entertaining to learn and create.
-Today, I will write about Day 2 challenge which is to create an animated sunrise and sunset over a pyramid using CSS
+<br />
+In this tutorial,  you will learn how to create an animated sunrise and sunset over a pyramid using CSS
 
-## Demo 
+## Demo
 You can take a look at the original demo link below.
 
 https://100dayscss.com/?dayIndex=2
@@ -73,9 +73,8 @@ $frame-size: $container-size - 200px;
 }
 ```
 Here is what we got
-<div style="text-align: center; margin: 0 auto;">
-    <img src="demo1.png" alt="frame" />
-</div>
+
+![frame](./demo1.png)
 
 #### Creating the sky, ground
 The proportion of the sky and ground could be 70 and 30 respectively. You can adjust the number for your own reference.
@@ -143,11 +142,9 @@ In the code, let's make the height, left position and the width of the big trian
 They would make it possible for us create relative position between the two triangles. 
 Let's make two blocks, one for big triangle and one for smaller one.
 
-Here we have a grey box being on top of white one. 
+Here we have a grey box being on top of white one.
 
-<div style="text-align: center; margin: 0 auto; margin-bottom: 20px">
-    <img src="demo2.png" alt="frame" />
-</div>
+![frame](./demo2.png)
 
 Here is the fun part, let's shape these boxes into triangles with `clip-path`. We will use a property called `polygon`. 
 `polygon` allows us to pass in as many pairs of coordinates by percentages of the component to clip the box into shape.
@@ -155,13 +152,9 @@ Here is the fun part, let's shape these boxes into triangles with `clip-path`. W
 
 To clip a box into a triangle, we need three points, I have made two images to make it easier to illustrate how we can do it.
 
-<div style="text-align: center; margin: 0 auto; margin-bottom: 20px">
-    <img src="demo4.png" alt="clip-path-demo" />
-</div>
+![clip-path-demo](./demo4.png)
 
-<div style="text-align: center; margin: 0 auto; margin-bottom: 20px">
-    <img src="demo5.png" alt="clip-path-demo" />
-</div>
+![clip-path-demo](./demo5.png)
 
 Let's put these coordinates into `clip-path`.
 
@@ -202,11 +195,7 @@ $pyramid-left-position: 40px;
 
 }
 ```
-
-<div style="text-align: center; margin: 0 auto; margin-bottom: 20px">
-    <img src="demo6.png" alt="the pyramid" />
-</div>
-
+![the pyramid](./demo6.png)
 
 #### Creating the sun and the pyramid's shadow
 
@@ -245,9 +234,7 @@ $shadow-left-position: 50px;
     clip-path: polygon($pyramid-left-position 0, $pyramid-width-left 0, 140% 100%);
 }
 ```
-<div style="text-align: center; margin: 0 auto; margin-bottom: 20px">
-    <img src="demo7.png" alt="the shadow" />
-</div>
+![the shadow](./demo7.png)
 
 ## Creating <a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank">animation</a>
 We have all the components, it's time for the fancy animation. We will use css 
@@ -286,9 +273,7 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.49, 1);
 ```
 At this step, the sun is actually spinning around itself. I have made the sun square so that we can see the spinning.
 
-<div style="text-align: center; margin: 0 auto; margin-bottom: 20px">
-    <img src="demo8.gif" alt="spinning-sun" />
-</div>
+![spinning sun](./demo8.gif)
 
 But here is the magic, if we change <a target="_blank" href="https://www.w3schools.com/cssref/css3_pr_transform-origin.asp">transform-origin</a> to `50% 400%`, then we will have our sunrise and sunset.
 This is because `transform-origin` allows us to change the position of transformed elements. 
@@ -349,9 +334,8 @@ To reverse the animation, we can declare `animation-direction: reverse` or using
   }
 }
 ```
-<div style="text-align: center; margin: 0 auto; margin-bottom: 20px">
-    <img src="demo9.gif" alt="spinning-sun" />
-</div>
+
+![spinning sun](./demo9.gif)
 
 ### Animating the shadow
 To animate the shadow, we need to change the pointy corner of the triangle to different position in the `keyframe`.

@@ -9,9 +9,10 @@ tags: ['css', 'frontend']
 In this blog, you will learn how to create an animated hamburger icon when being hovered over by using Pure CSS.
 
 ## Demo
-<div style="text-align: center">
-    <img src='hamburger-icon.gif' alt='demo' />
-</div>
+
+![demo](./hamburger-icon.gif)
+
+
 ## Implementation
 
 ### Initial styling
@@ -108,9 +109,7 @@ $transition-time: 0.2s;
 
 Here is what we got
 
-<div style="text-align: center">
-    <img src='line-2.gif' alt='line-2' />
-</div>
+![line-2](./line-2.gif)
 
 <br />
 
@@ -162,9 +161,9 @@ For `transition` to work out for `top/bottom`, we have to declare such propertie
 }
 ```
 
-<div style="text-align: center">
- <img src='shift-position.gif' alt='shift-position' />
-</div>
+
+![shift-position](./shift-position.gif)
+
 
 Look promising! Now we can focus on making it rotate.
 There is a tricky part here. The rotation happens after the shifting on the forwards transition, but it would happen before

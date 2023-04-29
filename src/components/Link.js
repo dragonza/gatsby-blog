@@ -1,22 +1,22 @@
-import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
+import React from 'react'
+import { Link as GatsbyLink } from 'gatsby'
 
 const Link = ({ children, to, ...other }) => {
-  const internal = /^\/(?!\/)/.test(to);
+    const internal = /^\/(?!\/)/.test(to)
 
-  if (internal) {
+    if (internal) {
+        return (
+            <GatsbyLink to={to} {...other}>
+                {children}
+            </GatsbyLink>
+        )
+    }
+
     return (
-      <GatsbyLink to={to} {...other}>
-        {children}
-      </GatsbyLink>
-    );
-  }
+        <a href={to} {...other}>
+            {children}
+        </a>
+    )
+}
 
-  return (
-    <a href={to} {...other}>
-      {children}
-    </a>
-  );
-};
-
-export default Link;
+export default Link

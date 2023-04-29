@@ -10,9 +10,7 @@ In today's tutorial, I will show you how to create a side menu component using R
 
 ## Demo
 
-<div style="text-align: center">
-    <img src='demo.gif' alt='demo' />
-</div>
+![demo](./demo.gif)
 
 What we want to create in this tutorial is a `SideMenu` will slide from the left of our page when users click on the hamburger icon.
 The menu would slide back to the left if users click on the overlay outside of the component
@@ -50,9 +48,7 @@ In the `App.css`, we can remove everything except for the App-header. I changed 
 
 Our page will look like this:
 
-<div style="text-align: center">
-    <img src='step-1.png' alt='step-1' />
-</div>
+![step-1](./step-1.png)
 
 <br />
 
@@ -221,9 +217,8 @@ The initial state for `isMenuActive` is false. Right now, the SideMenu won't be 
 
 Here is what we have got:
 
-<div style="text-align: center">
-    <img src='step-2.png' alt='step-2' />
-</div>
+![step-2](./step-2.png)
+
 <br />
 
 Now, we need to make our SideMenu Component to be aware of `isMenuActive` and when the overlay is clicked, so we will pass `isMenuActive` and `onOverLayClick` as props.
@@ -299,9 +294,8 @@ class SideMenu extends Component {
 ```
 Below is what we have got so far: 
 
-<div style="text-align: center">
-    <img src='step-3.png' alt='step-3' />
-</div>
+![step-3](./step-3.png)
+
 <br />
 
 ### Making the SideMenu reusable

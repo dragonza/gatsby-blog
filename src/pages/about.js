@@ -7,11 +7,11 @@ import { StaticImage } from 'gatsby-plugin-image'
 const About = () => (
     <Layout>
         <div className={aboutStyles.imageContainer}>
-            <StaticImage src="../images/profile.jpg" />
+            <StaticImage src="../images/profile.jpg" alt="profile" />
         </div>
 
-        <h3>Hi there!</h3>
-        <p>My name is Ngoc Vuong! I also go with the name Alex!</p>
+        <h3>Hi there,</h3>
+        <p>My name is Alex Vuong</p>
         <p>
             I am a self-taught front-end developer who is passionate about
             technology. I would love to understand things to their fundamentals

@@ -1,4 +1,3 @@
-
 /**
  * If you already use line highlighting
  */
@@ -20,37 +19,37 @@
 /*  overflow: auto;*/
 /*}*/
 
-.gatsby-highlight pre[class*="language-"].line-numbers {
-  padding: 1rem 0 1em 2.8em;
-  overflow: hidden;
+.gatsby-highlight pre[class*='language-'].line-numbers {
+    padding: 1rem 0 1em 2.8em;
+    overflow: hidden;
 }
 
 .line-numbers .line-numbers-rows {
-  padding-top: 1rem;
-  padding-left: .3rem;
+    padding-top: 1rem;
+    padding-left: 0.3rem;
 }
 
 .gatsby-highlight-code-line {
-  background-color: #56544e;
-  display: block;
-  margin-right: -1em;
-  margin-left: -1em;
-  padding-right: 1em;
-  padding-left: 0.75em;
-  border-left: 0.25em solid #f99;
+    background-color: #56544e;
+    display: block;
+    margin-right: -1em;
+    margin-left: -1em;
+    padding-right: 1em;
+    padding-left: 0.75em;
+    border-left: 0.25em solid #f99;
 }
-.gatsby-highlight pre[class*="language-"],
-.gatsby-highlight code[class*="language-"] {
-  font-size: .8rem;
-}
-
-code[class*="language-"] {
-  font-size: .9rem;
+.gatsby-highlight pre[class*='language-'],
+.gatsby-highlight code[class*='language-'] {
+    font-size: 0.8rem;
 }
 
-.gatsby-highlight pre[class*="language-"] {
-  margin-bottom: 1rem;
+code[class*='language-'] {
+    font-size: 0.9rem;
 }
-:not(pre) > code[class*="language-"] {
-  padding: .1rem .3rem;
+
+.gatsby-highlight pre[class*='language-'] {
+    margin-bottom: 1rem;
+}
+:not(pre) > code[class*='language-'] {
+    padding: 0.1rem 0.3rem;
 }

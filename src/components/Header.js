@@ -7,7 +7,7 @@ import './header.scss'
 import Nav from './Nav'
 import { StaticImage } from 'gatsby-plugin-image'
 
-const Header = ({ siteTitle, menuLinks, theme }) => {
+const Header = ({ siteTitle, menuLinks, mode }) => {
     const [isMenuActive, activeMenu] = useState(false)
     return (
         <header className="header">
@@ -26,14 +26,14 @@ const Header = ({ siteTitle, menuLinks, theme }) => {
                 <Nav menuLinks={menuLinks} />
                 <div className="icon icon--hamburger">
                     <Hamburger
-                        theme={theme}
+                        mode={mode}
                         onMenuClick={() => activeMenu(!isMenuActive)}
                     />
                 </div>
                 <SideMenu
                     menuLinks={menuLinks}
                     isMenuActive={isMenuActive}
-                    theme={theme}
+                    // mode={mode}
                     onOverLayClick={() => activeMenu(!isMenuActive)}
                 />
             </div>
@@ -43,6 +43,7 @@ const Header = ({ siteTitle, menuLinks, theme }) => {
 
 Header.propTypes = {
     siteTitle: PropTypes.string,
+    mode: PropTypes.string,
 }
 
 Header.defaultProps = {

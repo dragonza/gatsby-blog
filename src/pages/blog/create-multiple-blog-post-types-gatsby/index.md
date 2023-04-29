@@ -40,11 +40,9 @@ npm start
 Navigate to [http://localhost:8000/](http://localhost:8000/), you will see a blog site looking like this:
 
 
-<div style="text-align: center; margin: 0 auto; margin-bottom: 20px">
 
-![starter](./starter.png)
+![starter](starter.png)
 
-</div>
 
 so, at this point, we only have one template for blog post, which is located at `src/templates/blog-post`. 
 Let's say we want to have content which we want to use a different template. Let's call it `project page`. If we want the Gatsby site to be able to consume different templates for various blog type. 
@@ -58,11 +56,9 @@ Here are what we need to do:
 
 ## 1. Create a new folder for different blog type
 
-<div style="text-align: center; margin: 0 auto; margin-bottom: 20px">
 
-![folder-structure](./folder-structure.png)
+![folder-structure](folder-structure.png)
 
-</div>
 
 First, we need to add a `projects` folder and add a new post to it. The post should contain two required a title, date, and description which Gatsby will query as frontmatter. 
 Importantly, we need to add one more field `type` to distinguish different type of post, which we will use to tell Gatsby which template to use during build time
@@ -197,19 +193,13 @@ posts.forEach((post, index) => {
 ```
 At this step, the main page should have our project post(s).
 
-<div style="text-align: center; margin: 0 auto; margin-bottom: 20px">
-
-![main-page](./main-page.png)
-
-</div>
+![main-page](main-page.png)
 
 If we click on the first post, we will see the project template is used correctly.
 
-<div style="text-align: center; margin: 0 auto; margin-bottom: 20px">
 
-![project-page](./project-page.png)
+![project-page](project-page.png)
 
-</div>
 
 That is the basic way of using different templates in Gatsby. 
 

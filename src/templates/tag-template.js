@@ -20,7 +20,7 @@ function Tags(props) {
                             <Link
                                 to={node.fields.slug}
                                 key={i}
-                                className={tagTemplateStyles.link}
+                                className={tagTemplateStyles.tag}
                             >
                                 {node.frontmatter.title}
                             </Link>

@@ -4,21 +4,17 @@ import { graphql } from 'gatsby'
 import SEO from '../components/SEO'
 import Share from '../components/Share'
 import PrevNext from '../components/PrevNext'
-// import * as blogPostStyles from './blog-post.module.css'
+import * as blogPostStyles from './blog-post.module.css'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { MDXProvider } from '@mdx-js/react'
 
-const blogPostStyles = {}
 function BlogPost({ pageContext, data, location, children }) {
     const post = data.mdx
-    console.log('post', post)
-    console.log('children', children)
     const url = data.site.siteMetadata.siteUrl
     const { title, description, tags, date } = post.frontmatter
     let thumbnail = getImage(
         post.frontmatter.image?.childImageSharp?.gatsbyImageData
     )
-    console.log('thumbnail', thumbnail)
 
     const { prev, next } = pageContext
 
@@ -37,11 +33,11 @@ function BlogPost({ pageContext, data, location, children }) {
                 <div className={blogPostStyles.dateWrapper}>
                     <span className={blogPostStyles.date}>{date}</span>
                 </div>
-                <GatsbyImage image={thumbnail} />
+                <GatsbyImage image={thumbnail} alt="thumbnail" />
 
                 <br />
                 <div className="blog-post-content">
-                    {/*<MDXProvider components={{}}>{children}</MDXProvider>*/}
+                    <MDXProvider components={{}}>{children}</MDXProvider>
                 </div>
 
                 <hr />
@@ -79,12 +75,7 @@ export const query = graphql`
                 tags
                 image {
                     childImageSharp {
-                        gatsbyImageData(
-                            width: 1500
-                            height: 1500
-                            placeholder: BLURRED
-                            formats: [AUTO, WEBP, AVIF]
-                        )
+                        gatsbyImageData(width: 800)
                     }
                 }
                 description
