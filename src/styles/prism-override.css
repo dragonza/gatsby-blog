@@ -47,6 +47,22 @@ code[class*='language-'] {
     font-size: 0.9rem;
 }
 
+code {
+    background: #2d2d2d;
+    color: #ccc;
+    border-radius: 0.3em;
+    white-space: normal;
+    font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+    text-align: left;
+    padding: 0.1rem 0.3rem;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    hyphens: none;
+}
+
 .gatsby-highlight pre[class*='language-'] {
     margin-bottom: 1rem;
 }

@@ -1,13 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-// import * as shareStyle from './Share.module.scss'
+import * as shareStyle from './Share.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-Share.propTypes = {
-    pathname: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-}
+import PropTypes from 'prop-types'
 
 const Share = (props) => {
     const twitter = `https://twitter.com/intent/tweet?url=${
@@ -20,12 +14,12 @@ const Share = (props) => {
     return (
         <div className="post-social">
             <h3 className="center">Share</h3>
-            <ul className="social">
+            <ul className={shareStyle.social}>
                 <li>
                     <a
                         href={fb}
                         target="blank"
-                        className="facebook"
+                        className={shareStyle.facebook}
                         aria-label="share on facebook"
                     >
                         <FontAwesomeIcon icon={['fab', 'facebook-f']} />
@@ -35,7 +29,7 @@ const Share = (props) => {
                     <a
                         href={twitter}
                         target="blank"
-                        className="twitter"
+                        className={shareStyle.twitter}
                         aria-label="share on twitter"
                     >
                         <FontAwesomeIcon icon={['fab', 'twitter']} />
@@ -44,6 +38,11 @@ const Share = (props) => {
             </ul>
         </div>
     )
+}
+Share.propTypes = {
+    pathname: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
 }
 
 export default Share

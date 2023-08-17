@@ -22,7 +22,6 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 
 const createBlogPost = (createPage, posts) => {
     const blogTemplate = path.resolve('./src/templates/blog-post.js')
-    console.log('blogTemplate', blogTemplate)
 
     posts.forEach((post, index) => {
         createPage({
@@ -48,7 +47,6 @@ const createTagPage = (createPage, posts) => {
         }
     })
     allTags = _.uniq(allTags)
-    console.log('allTags', allTags)
 
     allTags.forEach((tag) => {
         createPage({
@@ -128,7 +126,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
 
     const posts = result.data.allMdx.nodes
-    console.log('posts', posts)
     createBlogPost(createPage, posts)
     createTagPage(createPage, posts)
 }

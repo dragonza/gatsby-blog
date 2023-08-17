@@ -33,7 +33,7 @@ function Nav({ menuLinks, className }) {
 
 Nav.propTypes = {
     menuLinks: PropTypes.array,
-    className: PropTypes.object,
+    className: PropTypes.string,
 }
 
 export default Nav

@@ -14,7 +14,7 @@ import { mainContainer } from './layout.module.css'
 import Header from './Header'
 // import Toggle from 'react-toggle'
 import 'react-toggle/style.css' // for ES6 modules
-// import Helmet from 'react-helmet'
+import Helmet from 'react-helmet'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -49,49 +49,45 @@ const Layout = ({ children }) => {
                     }
                 }
             `}
-            render={(data) =>
-                console.log('data', data) || (
-                    <>
-                        {/*<Helmet*/}
-                        {/*    meta={[*/}
-                        {/*        {*/}
-                        {/*            name: 'theme-color',*/}
-                        {/*            content:*/}
-                        {/*                this.state.theme === 'light'*/}
-                        {/*                    ? '#ffa8c5'*/}
-                        {/*                    : '#282c35',*/}
-                        {/*        },*/}
-                        {/*    ]}*/}
-                        {/*/>*/}
-                        <Header
-                            mode={mode}
-                            onMenuClick={handleMenuClick}
-                            siteTitle={data.site.siteMetadata.title}
-                            menuLinks={data.site.siteMetadata.menuLinks}
-                        />
-                        {/*<div className={toggleContainer}>*/}
-                        {/*    {this.state.theme !== null ? (*/}
-                        {/*        <Toggle*/}
-                        {/*            aria-label="darktheme"*/}
-                        {/*            icons={false}*/}
-                        {/*            className="toggle-theme"*/}
-                        {/*            checked={this.state.theme === 'dark'}*/}
-                        {/*            onChange={(e) =>*/}
-                        {/*                window.__setPreferredTheme(*/}
-                        {/*                    e.target.checked ? 'dark' : 'light'*/}
-                        {/*                )*/}
-                        {/*            }*/}
-                        {/*        />*/}
-                        {/*    ) : (*/}
-                        {/*        <div style={{ height: '24px' }} />*/}
-                        {/*    )}*/}
-                        {/*</div>*/}
-                        <div className={mainContainer}>
-                            <MDXProvider>{children}</MDXProvider>
-                        </div>
-                    </>
-                )
-            }
+            render={(data) => (
+                <>
+                    <Helmet
+                        meta={[
+                            {
+                                name: 'theme-color',
+                                content:
+                                    mode === 'light' ? '#ffa8c5' : '#282c35',
+                            },
+                        ]}
+                    />
+                    <Header
+                        mode={mode}
+                        onMenuClick={handleMenuClick}
+                        siteTitle={data.site.siteMetadata.title}
+                        menuLinks={data.site.siteMetadata.menuLinks}
+                    />
+                    {/*<div className={toggleContainer}>*/}
+                    {/*    {this.state.theme !== null ? (*/}
+                    {/*        <Toggle*/}
+                    {/*            aria-label="darktheme"*/}
+                    {/*            icons={false}*/}
+                    {/*            className="toggle-theme"*/}
+                    {/*            checked={this.state.theme === 'dark'}*/}
+                    {/*            onChange={(e) =>*/}
+                    {/*                window.__setPreferredTheme(*/}
+                    {/*                    e.target.checked ? 'dark' : 'light'*/}
+                    {/*                )*/}
+                    {/*            }*/}
+                    {/*        />*/}
+                    {/*    ) : (*/}
+                    {/*        <div style={{ height: '24px' }} />*/}
+                    {/*    )}*/}
+                    {/*</div>*/}
+                    <div className={mainContainer}>
+                        <MDXProvider>{children}</MDXProvider>
+                    </div>
+                </>
+            )}
         />
     )
 }

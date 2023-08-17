@@ -79,26 +79,25 @@ module.exports = {
                             inlineCodeMarker: null,
                             aliases: {},
                             showLineNumbers: false,
-                            noInlineHighlight: false,
+                            noInlineHighlight: true,
                         },
                     },
                 ],
             },
         },
-        {
-            resolve: 'gatsby-transformer-remark',
-            options: {
-                plugins: [
-                    {
-                        resolve: `gatsby-remark-images`,
-                        options: {
-                            maxWidth: 1035,
-                            sizeByPixelDensity: true,
-                        },
-                    },
-                ],
-            },
-        },
+        // {
+        //     resolve: 'gatsby-transformer-remark',
+        //     options: {
+        //         plugins: [
+        //             {
+        //                 resolve: `gatsby-remark-images`,
+        //                 options: {
+        //                     maxWidth: 1035,
+        //                 },
+        //             },
+        //         ],
+        //     },
+        // },
         'gatsby-remark-images',
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
